@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>3日で完成！はじめてのLINEステップ配信 実践ミニ講座｜つむぎ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:wght@500;600&display=swap">
+<style>
+:root{--deep:#0A1630;--navy:#12244A;--mid:#1C3466;--gold:#C9A85C;--gold-l:#E6CC8A;--gold-d:#8A6A22;--ink:#1A2440;--muted:#4A5778;--line:#D8DEEA;--paper:#F3F5FA;--tint:#EAEEF6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--deep);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);line-height:1.9;font-size:16px}
+a{color:var(--gold-d)}a:hover{color:var(--navy)}
+.serif{font-family:'Shippori Mincho B1',serif}
+.latin{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;font-size:15px;margin:0}
+.wrap{max-width:860px;margin:0 auto}
+.wide{max-width:1080px;margin:0 auto}
+h2,h3,h4,p,ul,ol{margin:0}
+.bar{width:48px;height:2px;background:var(--gold)}
+
+/* top nav */
+.topnav{background:var(--deep);border-bottom:1px solid #22355E}
+.topnav .wide{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:12px}
+.topnav a{color:#C9D2E6;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center}
+.topnav a:hover{color:var(--gold-l)}
+.topnav .brand{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold);font-size:14px}
+
+/* hero */
+.hero{background:var(--deep);color:#EEF1F7;padding:88px 20px 96px;position:relative}
+.hero::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold)}
+.hero .wide{display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center}
+.rule{display:flex;align-items:center;gap:14px;color:var(--gold)}
+.rule .l{display:block;width:40px;height:1px;background:var(--gold)}
+.pill{font-size:15px;letter-spacing:.12em;color:#C9D2E6;border:1px solid #3A4E7A;padding:6px 20px;border-radius:999px}
+.hero h1{margin:0;font-weight:800;font-size:clamp(26px,4.4vw,50px);line-height:1.45;letter-spacing:.03em;color:#fff;max-width:960px}
+.hero .sub{font-weight:600;font-size:clamp(16px,2.1vw,21px);line-height:1.8;color:var(--gold-l);max-width:820px}
+
+/* toc */
+.toc{background:var(--navy);color:#EEF1F7;padding:56px 20px}
+.toc .wide{display:flex;flex-direction:column;gap:22px}
+.toc .eyebrow{color:var(--gold);text-align:center}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.toc a{display:flex;gap:14px;align-items:center;background:var(--deep);border:1px solid #2E4372;border-radius:6px;padding:14px 18px;color:#EEF1F7;text-decoration:none;min-height:44px;height:100%}
+.toc a:hover{border-color:var(--gold)}
+.toc .n{font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--gold);flex:0 0 auto}
+.toc .t{font-size:14px;line-height:1.6}
+
+/* sections */
+.sec{background:var(--paper);padding:80px 20px}
+.sec.alt,.sec.intro{background:#fff}
+.sec .wrap{display:flex;flex-direction:column;gap:20px}
+.sec-head{display:flex;gap:20px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.sec-no{flex:0 0 auto;width:68px;height:68px;border-radius:6px;background:var(--deep);color:var(--gold-l);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600}
+.sec-no.orn{font-size:22px}
+.sec-head h2{font-weight:800;font-size:clamp(20px,2.7vw,28px);line-height:1.55;color:var(--deep)}
+.sec h3{font-size:19px;color:var(--deep);line-height:1.6;padding-left:14px;border-left:3px solid var(--gold);margin-top:16px}
+.sec h4{font-size:17px;color:var(--navy);line-height:1.6;margin-top:8px}
+.sec ul,.sec ol{padding-left:1.5em;display:flex;flex-direction:column;gap:8px}
+.sec ul.lv1,.sec ol.lv1{padding-left:3em}
+.sec ul.lv2,.sec ol.lv2{padding-left:4.5em}
+.label{color:var(--gold-d);font-weight:700;font-size:15px;letter-spacing:.04em;margin-top:6px}
+.purpose{background:var(--tint);border-radius:6px;padding:14px 18px}
+.codelabel{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold-d);font-weight:600;margin-top:10px}
+.warn{background:#FFF8EC;border:1px solid #E8D3A6;border-radius:6px;padding:16px 20px;font-size:15px}
+
+/* prompt */
+.prompt{background:var(--deep);border-radius:8px;overflow:hidden;border:1px solid #2E4372}
+.prompt-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 10px 8px 18px;background:var(--navy);border-bottom:1px solid #2E4372}
+.prompt-bar span{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;color:var(--gold);font-size:14px}
+.copy{font:inherit;font-size:14px;font-weight:700;background:var(--gold);color:var(--deep);border:0;border-radius:4px;padding:8px 16px;min-height:44px;cursor:pointer}
+.copy:hover{background:var(--gold-l)}
+.copy.done{background:#fff}
+.prompt pre{margin:0;padding:20px 22px;color:#E4E9F3;font-family:'Zen Kaku Gothic New',sans-serif;font-size:14.5px;line-height:1.85;white-space:pre-wrap;word-break:break-word;max-height:520px;overflow:auto}
+
+/* panels */
+.example{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.sec:not(.alt):not(.intro) .example{background:#fff}
+.sec.alt .example,.sec.intro .example{background:var(--paper)}
+.ex-head{font-weight:700;color:var(--deep)}
+.info{background:var(--navy);color:#EEF1F7;border-radius:8px;padding:24px 28px;display:flex;flex-direction:column;gap:10px}
+.info strong{color:var(--gold-l)}
+.info .arrow{color:var(--gold);text-align:center;font-size:20px;line-height:1}
+.soft{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px 26px;display:flex;flex-direction:column;gap:10px}
+.sec.alt .soft,.sec.intro .soft{background:var(--paper)}
+.soft-h{font-weight:700;color:var(--deep)}
+
+/* days */
+.days{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.day{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.day-n{font-family:'Cormorant Garamond',serif;letter-spacing:.2em;color:var(--gold-d);font-weight:600}
+.sec.closing .btn{color:var(--deep)}
+
+/* checklist */
+.checks{list-style:none;padding:0 !important;display:flex;flex-direction:column;gap:10px}
+.checks label{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;cursor:pointer;min-height:44px}
+.sec.alt .checks label,.sec.intro .checks label{background:var(--paper)}
+.checks input{flex:0 0 auto;width:20px;height:20px;margin-top:5px;accent-color:var(--navy)}
+.checks input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold)}
+
+/* table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;min-width:560px}
+th{background:var(--deep);color:var(--gold-l);text-align:left;font-size:14px;letter-spacing:.04em;padding:14px 16px;vertical-align:top}
+td{padding:14px 16px;border-top:1px solid var(--line);vertical-align:top;font-size:15px}
+td:first-child{font-weight:700;color:var(--deep)}
+.blank-cell{display:block;min-height:28px;border-bottom:1px dashed #A9B4CC}
+
+/* closing */
+.sec.closing{background:var(--navy);color:#EEF1F7}
+.sec.closing p{color:#C9D2E6}
+.sec.closing .bighead{font-weight:800;font-size:clamp(22px,3.2vw,32px);line-height:1.6;color:#fff}
+.sec.closing .info{background:var(--deep)}
+
+/* end */
+.end{background:var(--deep);padding:64px 20px;text-align:center;color:#C9D2E6}
+.end .wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 28px;border-radius:4px;background:var(--gold);color:var(--deep);font-weight:700;text-decoration:none}
+.btn:hover{background:var(--gold-l);color:var(--deep)}
+.sign{font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold-l);letter-spacing:.2em}
+footer{background:var(--deep);color:#8C9BBD;padding:0 20px 28px;text-align:center;font-size:13px;letter-spacing:.08em}
+
+@media (max-width:760px){
+ .sec{padding:60px 16px}
+ .toc{padding:44px 16px}
+ .toc ol{grid-template-columns:minmax(0,1fr)}
+ .days{grid-template-columns:minmax(0,1fr)}
+ .sec-head{gap:14px}
+ .sec-no{width:52px;height:52px;font-size:26px}
+ .prompt pre{font-size:14px;padding:16px}
+ .info,.soft,.example{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="topnav"><div class="wide"><span class="brand">TSUMUGI</span><a href="index.html">← 特典一覧に戻る</a></div></div>
+
+<header class="hero">
+<div class="wide">
+<div class="rule latin"><span class="l"></span><span>GIFT ITEM 04</span><span class="l"></span></div>
+<p class="pill">つむぎ公式LINE 特典アイテム 04｜自動収益化</p>
+<h1 class="serif">3日で完成！はじめてのLINEステップ配信 実践ミニ講座</h1>
+
+</div>
+</header>
+
+<nav class="toc dark" aria-label="目次"><div class="wide"><p class="latin eyebrow">CONTENTS</p><ol><li><a href="#s2"><span class="n">◆</span><span class="t">このミニ講座で完成するもの</span></a></li><li><a href="#s3"><span class="n">◆</span><span class="t">この講座の使い方</span></a></li><li><a href="#s4"><span class="n">◆</span><span class="t">事前に準備するもの</span></a></li><li><a href="#s5"><span class="n">D1</span><span class="t">DAY1｜「誰に、何を届ける?」を決めて1通目を作ろう</span></a></li><li><a href="#s6"><span class="n">D2</span><span class="t">DAY2｜「この人から学びたい」と思ってもらう2通目を作ろう</span></a></li><li><a href="#s7"><span class="n">D3</span><span class="t">DAY3｜「もっと知りたい」につなげる3通目を作ろう</span></a></li><li><a href="#s8"><span class="n">◆</span><span class="t">3日間、お疲れさまでした!</span></a></li><li><a href="#s9"><span class="n">◆</span><span class="t">配信前の最終チェックリスト</span></a></li></ol></div></nav>
+
+<section class="sec intro" id="s1"><div class="wrap">
+<div class="info"><p>「LINEを作ったほうがいいのは分かっているけど、何を書けばいいの?」<strong>そんなふうに感じていませんか?</strong></p><p>大丈夫です。すでにお渡ししている<strong>「LINEステップ配信作成プロンプト」</strong>を使いながら、実際に手を動かして、<strong>3日間でLINEステップ配信を3通完成させる</strong>ところまで一緒に進めていきます。</p></div>
+<div class="soft"><p>大切なのは、<strong>最初から完璧なLINEを作ろうとしないこと。</strong>実績ゼロでも大丈夫です。難しく考えなくても大丈夫です。AIに相談しながら、一つずつ作っていきましょう。</p></div>
+</div></section>
+
+<section class="sec" id="s2"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">このミニ講座で完成するもの</h2></div>
+<p>3日間で、次の3通を完成させます。</p>
+<div class="days">
+<div class="day"><span class="day-n">DAY 1</span><p><strong>登録直後に届く「1通目」</strong></p><p>登録のお礼と特典のお渡しをするメッセージです。</p></div>
+<div class="day"><span class="day-n">DAY 2</span><p><strong>信頼関係を作る「2通目」</strong></p><p>あなたの経験や考えを伝えながら、読者との距離を縮めるメッセージです。</p></div>
+<div class="day"><span class="day-n">DAY 3</span><p><strong>次の行動につなげる「3通目」</strong></p><p>商品やサービスを紹介し、読者に次の一歩を提案するメッセージです。</p></div>
+</div>
+</div></section>
+
+<section class="sec alt" id="s3"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">この講座の使い方</h2></div>
+<p>このページは、最初から最後まで一気に読む必要はありません。<strong>今日やるDayだけ開いて、そこに書いてある作業を進めてください。</strong></p>
+<h3>おすすめの進め方</h3>
+<ol>
+<li>説明を読む</li>
+<li>チェックリストを確認する</li>
+<li>プロンプトを使ってAIに相談する</li>
+<li>出てきた文章を自分の言葉に整える</li>
+<li>完成チェックをする</li>
+</ol>
+<div class="info"><p>この繰り返しです。「読むだけ」で終わらせず、<strong>その場で手を動かすこと</strong>を意識してください。</p></div>
+</div></section>
+
+<section class="sec" id="s4"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">事前に準備するもの</h2></div>
+<p>始める前に、次のものを準備しておきましょう。全部そろっていなくても大丈夫です。分からない項目があれば、AIに相談しながら決めていきましょう。</p>
+<ul class="checks">
+<li><label><input type="checkbox"><span>ChatGPTなどのAI</span></label></li>
+<li><label><input type="checkbox"><span>「LINEステップ配信作成プロンプト」</span></label></li>
+<li><label><input type="checkbox"><span>自分の発信ジャンル</span></label></li>
+<li><label><input type="checkbox"><span>ターゲット</span></label></li>
+<li><label><input type="checkbox"><span>LINEで配布する特典</span></label></li>
+<li><label><input type="checkbox"><span>案内したい商品・サービス</span></label></li>
+<li><label><input type="checkbox"><span>特典のURL</span></label></li>
+<li><label><input type="checkbox"><span>商品・サービスのURL</span></label></li>
+</ul>
+</div></section>
+
+<section class="sec alt" id="s5"><div class="wrap">
+<div class="sec-head"><span class="sec-no">D1</span><h2 class="serif">DAY1｜「誰に、何を届ける?」を決めて1通目を作ろう</h2></div>
+<p class="purpose">目安時間：20〜30分</p>
+<h3>DAY1の目的</h3>
+<p>今日のゴールは、<strong>LINE登録直後に届く「1通目」を完成させること。</strong>1通目の役割は、いきなり商品を売ることではありません。まずは、<strong>「登録してくれてありがとうございます」</strong>という気持ちを伝え、<strong>「このLINEを登録してよかった」</strong>と思ってもらうことが大切です。</p>
+<h3>STEP1｜まず、LINE全体のゴールを決める</h3>
+<p>次の項目を考えてみてください。</p>
+<ul>
+<li>誰に届けるLINEなのか?</li>
+<li>どんな悩みを持っている人なのか?</li>
+<li>LINE登録すると何がもらえるのか?</li>
+<li>最終的に何を案内したいのか?</li>
+</ul>
+<div class="tbl"><table>
+<tr><td>発信ジャンル</td><td><span class="blank-cell"></span></td></tr>
+<tr><td>ターゲット</td><td><span class="blank-cell"></span></td></tr>
+<tr><td>ターゲットの悩み</td><td><span class="blank-cell"></span></td></tr>
+<tr><td>LINE特典</td><td><span class="blank-cell"></span></td></tr>
+<tr><td>案内したい商品・サービス</td><td><span class="blank-cell"></span></td></tr>
+</table></div>
+<h3>STEP2｜必要な情報を準備する</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>発信ジャンルを決めた</span></label></li>
+<li><label><input type="checkbox"><span>ターゲットを決めた</span></label></li>
+<li><label><input type="checkbox"><span>ターゲットの悩みを整理した</span></label></li>
+<li><label><input type="checkbox"><span>LINE特典を決めた</span></label></li>
+<li><label><input type="checkbox"><span>特典URLを用意した</span></label></li>
+<li><label><input type="checkbox"><span>案内する商品・サービスを決めた</span></label></li>
+</ul>
+<div class="soft"><p>まだ決まっていないものがあっても大丈夫です。分からないところはAIに相談しながら進めればOKです。</p></div>
+<h3>STEP3｜LINEステップ配信作成プロンプトを使う</h3>
+<p>別特典としてお渡ししている<strong>「LINEステップ配信作成プロンプト」</strong>を使います。</p>
+<ul class="checks">
+<li><label><input type="checkbox"><span>プロンプトをコピーする</span></label></li>
+<li><label><input type="checkbox"><span>自分のジャンルを入力する</span></label></li>
+<li><label><input type="checkbox"><span>ターゲットを入力する</span></label></li>
+<li><label><input type="checkbox"><span>LINE特典を入力する</span></label></li>
+<li><label><input type="checkbox"><span>案内したい商品・サービスを入力する</span></label></li>
+<li><label><input type="checkbox"><span>AIに送信する</span></label></li>
+<li><label><input type="checkbox"><span>出てきた1通目を確認する</span></label></li>
+</ul>
+<h3>STEP4｜1通目を自分仕様に整える</h3>
+<p>AIが作った文章を、そのまま使わなくても大丈夫です。むしろ、<strong>少しだけ自分の言葉を入れてみましょう。</strong></p>
+<div class="example"><p class="ex-head">1通目に入れる内容</p><p>登録してくれたことへのお礼／LINE特典の案内／特典を受け取ってほしいというメッセージ／なぜこの発信をしているのか／読者への寄り添い／明日の配信予告</p></div>
+<ul class="checks">
+<li><label><input type="checkbox"><span>「登録ありがとうございます」が伝わる</span></label></li>
+<li><label><input type="checkbox"><span>特典を受け取る方法が分かる</span></label></li>
+<li><label><input type="checkbox"><span>自分が発信している理由が伝わる</span></label></li>
+<li><label><input type="checkbox"><span>読者に寄り添う言葉が入っている</span></label></li>
+<li><label><input type="checkbox"><span>明日の配信予告が入っている</span></label></li>
+</ul>
+<h3>DAY1｜つまずきやすいポイントと対処法</h3>
+<div class="example"><p class="ex-head">「何を書けばいいか分からない」</p><p>全部自分で考えなくて大丈夫です。AIに、「私に質問しながら1通目を作ってください」とお願いしてみましょう。</p></div>
+<div class="example"><p class="ex-head">「AIの文章がなんだか堅い」</p><p>自分が普段話している言葉に直しましょう。「ぜひご活用ください」より、「よかったら使ってみてくださいね」くらいのほうが、LINEでは自然です。</p></div>
+<div class="example"><p class="ex-head">「長い文章になってしまった」</p><p>1通目は、全部を説明する必要はありません。「ありがとう」「特典はこちら」「明日はこんな話をします」くらいのシンプルさでも大丈夫です。</p></div>
+<div class="info"><p><strong>「完璧にしようとして進まない」</strong></p><p>ここは非常に大事です。<strong>60〜70点で一度完成させましょう。</strong>最初から100点を目指すと、文章の一文字目と一生戦うことになります🙂 まず完成。そのあと必要なら直せばOKです。</p></div>
+<h3>DAY1 完成!</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>LINE全体の方向性を決めた</span></label></li>
+<li><label><input type="checkbox"><span>必要な情報を整理した</span></label></li>
+<li><label><input type="checkbox"><span>AIで1通目を作った</span></label></li>
+<li><label><input type="checkbox"><span>自分の言葉に整えた</span></label></li>
+<li><label><input type="checkbox"><span>1通目を完成させた</span></label></li>
+</ul>
+<p><strong>1通目ができたら、今日は終了です。お疲れさまでした🌷</strong></p>
+</div></section>
+
+<section class="sec" id="s6"><div class="wrap">
+<div class="sec-head"><span class="sec-no">D2</span><h2 class="serif">DAY2｜「この人から学びたい」と思ってもらう2通目を作ろう</h2></div>
+<p class="purpose">目安時間：20〜30分</p>
+<h3>DAY2の目的</h3>
+<p>今日のゴールは、<strong>読者との信頼関係を作る「2通目」を完成させること。</strong>2通目では、あなたの経験や考えを少し伝えていきます。ここで大切なのは、<strong>「すごい実績を見せること」ではありません。</strong>実績ゼロでも大丈夫です。あなたが実際に経験したことや、悩んだこと。そこから得た気づき。それだけでも、読者にとって価値があります。</p>
+<h3>STEP1｜2通目の役割を確認する</h3>
+<p>2通目では、<strong>「この人、私の気持ちを分かってくれる」</strong>と思ってもらうことを目指します。</p>
+<div class="example"><p class="ex-head">伝えること</p><p>特典を受け取ったか確認する／読者の状況を気遣う／一人で取り組む難しさを伝える／自分の経験を少し伝える／読者が前に進めるヒントを渡す／明日の案内につなげる</p></div>
+<h3>STEP2｜自分の経験を1つ選ぶ</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>過去の悩み</span></label></li>
+<li><label><input type="checkbox"><span>失敗した経験</span></label></li>
+<li><label><input type="checkbox"><span>うまくいかなかった方法</span></label></li>
+<li><label><input type="checkbox"><span>そこから気づいたこと</span></label></li>
+<li><label><input type="checkbox"><span>読者に伝えたいこと</span></label></li>
+</ul>
+<div class="soft"><p class="soft-h">私は以前、＿＿＿＿でした。そのとき、＿＿＿＿と感じていました。でも、＿＿＿＿に気づきました。</p></div>
+<p>完璧な文章にしなくて大丈夫です。箇条書きでもOKです。</p>
+<h3>STEP3｜AIに2通目を作ってもらう</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>プロンプトをコピーする</span></label></li>
+<li><label><input type="checkbox"><span>Day1で整理した情報を入力する</span></label></li>
+<li><label><input type="checkbox"><span>自分の経験を追加する</span></label></li>
+<li><label><input type="checkbox"><span>AIに送信する</span></label></li>
+<li><label><input type="checkbox"><span>出力された2通目を確認する</span></label></li>
+</ul>
+<h3>STEP4｜「自分らしさ」を追加する</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>自分の経験が入っている</span></label></li>
+<li><label><input type="checkbox"><span>読者の気持ちに寄り添っている</span></label></li>
+<li><label><input type="checkbox"><span>上から目線になっていない</span></label></li>
+<li><label><input type="checkbox"><span>「私もそうだった」と共感できる内容になっている</span></label></li>
+<li><label><input type="checkbox"><span>明日の配信が気になる流れになっている</span></label></li>
+</ul>
+<h3>DAY2｜つまずきやすいポイントと対処法</h3>
+<div class="example"><p class="ex-head">「たいした実績がないから書けない」</p><p>大丈夫です。必要なのは「私はこんなにすごい」ではありません。「私もこんなことで悩んでいました」という経験です。実績ではなく、<strong>経験を価値に変えていきましょう。</strong></p></div>
+<div class="example"><p class="ex-head">「自分の話ばかりになってしまう」</p><p>自分の経験を書いたら、最後に必ず「だから、あなたにもこうしてほしい」という読者へのメッセージにつなげます。</p></div>
+<div class="example"><p class="ex-head">「売り込みっぽくなってしまう」</p><p>2通目では、無理に商品を売らなくても大丈夫です。まずは、<strong>知ってもらう→共感してもらう→信頼してもらう</strong>ことを優先しましょう。</p></div>
+<h3>DAY2 完成!</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>2通目の役割を理解した</span></label></li>
+<li><label><input type="checkbox"><span>自分の経験を整理した</span></label></li>
+<li><label><input type="checkbox"><span>AIで2通目を作った</span></label></li>
+<li><label><input type="checkbox"><span>自分らしい言葉を加えた</span></label></li>
+<li><label><input type="checkbox"><span>2通目を完成させた</span></label></li>
+</ul>
+<p><strong>ここまで来たら、あと1通です🌷</strong></p>
+</div></section>
+
+<section class="sec alt" id="s7"><div class="wrap">
+<div class="sec-head"><span class="sec-no">D3</span><h2 class="serif">DAY3｜「もっと知りたい」につなげる3通目を作ろう</h2></div>
+<p class="purpose">目安時間：20〜30分</p>
+<h3>DAY3の目的</h3>
+<p>今日のゴールは、<strong>読者に次の一歩を提案する「3通目」を完成させること。</strong>ここで初めて、商品やサービスを案内します。でも、<strong>「買ってください!」</strong>と強く迫る必要はありません。読者の悩みに対して、<strong>「こんな方法もありますよ」</strong>と選択肢を渡すイメージです。</p>
+<h3>STEP1｜3通目の役割を確認する</h3>
+<div class="example"><p>ここまでの内容を振り返る／読者の悩みを整理する／独学でつまずきやすいポイントを伝える／解決策を提示する／商品・サービスを紹介する／次の行動を案内する</p></div>
+<h3>STEP2｜商品情報を整理する</h3>
+<div class="tbl"><table>
+<tr><td>商品名</td><td><span class="blank-cell"></span></td></tr>
+<tr><td>価格</td><td><span class="blank-cell"></span></td></tr>
+<tr><td>どんな人向け?</td><td><span class="blank-cell"></span></td></tr>
+<tr><td>何が学べる?</td><td><span class="blank-cell"></span></td></tr>
+<tr><td>購入すると、どんな未来を目指せる?</td><td><span class="blank-cell"></span></td></tr>
+<tr><td>購入・申込みURL</td><td><span class="blank-cell"></span></td></tr>
+</table></div>
+<h3>STEP3｜AIに3通目を作ってもらう</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>プロンプトをコピーする</span></label></li>
+<li><label><input type="checkbox"><span>商品情報を入力する</span></label></li>
+<li><label><input type="checkbox"><span>Day1・Day2の内容を確認する</span></label></li>
+<li><label><input type="checkbox"><span>AIに送信する</span></label></li>
+<li><label><input type="checkbox"><span>3通目を確認する</span></label></li>
+</ul>
+<h3>STEP4｜売り込み感をチェックする</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>読者の悩みから自然につながっている</span></label></li>
+<li><label><input type="checkbox"><span>なぜこの商品が必要なのか分かる</span></label></li>
+<li><label><input type="checkbox"><span>商品の内容が具体的</span></label></li>
+<li><label><input type="checkbox"><span>誰向けの商品なのか分かる</span></label></li>
+<li><label><input type="checkbox"><span>価格が分かる</span></label></li>
+<li><label><input type="checkbox"><span>購入・申込み方法が分かる</span></label></li>
+<li><label><input type="checkbox"><span>CTAが分かりやすい</span></label></li>
+<li><label><input type="checkbox"><span>無理に購入を迫っていない</span></label></li>
+</ul>
+<h3>DAY3｜つまずきやすいポイントと対処法</h3>
+<div class="example"><p class="ex-head">「商品を紹介するのが怖い」</p><p>その気持ちは自然です。でも、商品を紹介すること自体が悪いわけではありません。<strong>必要としている人に、解決策を伝えること</strong>も、コンテンツ販売の大切な仕事です。「売らなきゃ」ではなく、「必要な人に届いたらいいな」くらいの気持ちで大丈夫です。</p></div>
+<div class="example"><p class="ex-head">「限定性を入れたほうがいい?」</p><p>本当に期限や人数制限がある場合だけ使いましょう。無理に「あと3名です!」などと書く必要はありません。<strong>信頼を積み重ねることを優先しましょう。</strong></p></div>
+<div class="example"><p class="ex-head">「CTAをたくさん入れてしまう」</p><p>読者にしてほしい行動は、基本的に1つにします。次の行動を1つに絞ったほうが分かりやすくなります。</p></div>
+<h3>DAY3 完成!</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>商品情報を整理した</span></label></li>
+<li><label><input type="checkbox"><span>AIで3通目を作った</span></label></li>
+<li><label><input type="checkbox"><span>商品案内を入れた</span></label></li>
+<li><label><input type="checkbox"><span>CTAを設定した</span></label></li>
+<li><label><input type="checkbox"><span>3通目を完成させた</span></label></li>
+</ul>
+</div></section>
+
+<section class="sec" id="s8"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">3日間、お疲れさまでした!</h2></div>
+<p>ここまでできたら、<strong>あなたのLINEステップ配信は完成です。</strong>最初は、「LINEって何を書けばいいんだろう?」と思っていたかもしれません。でも実際にやってみると、<strong>1通ずつ作ればいい。</strong>それだけです。実績ゼロでも大丈夫。難しく考えなくて大丈夫です。AIに相談しながら、自分の経験や言葉を少しずつ加えていけば、<strong>「あなたのLINE」</strong>になっていきます。</p>
+</div></section>
+
+<section class="sec alt" id="s9"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">配信前の最終チェックリスト</h2></div>
+<p>最後に、実際に配信する前に確認しましょう。</p>
+<h3>内容チェック</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>1通目が完成している</span></label></li>
+<li><label><input type="checkbox"><span>2通目が完成している</span></label></li>
+<li><label><input type="checkbox"><span>3通目が完成している</span></label></li>
+<li><label><input type="checkbox"><span>3通の流れが自然につながっている</span></label></li>
+<li><label><input type="checkbox"><span>ターゲットが明確になっている</span></label></li>
+<li><label><input type="checkbox"><span>読者の悩みに寄り添えている</span></label></li>
+<li><label><input type="checkbox"><span>自分自身の経験や言葉が入っている</span></label></li>
+</ul>
+<h3>読みやすさチェック</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>1文が長すぎない</span></label></li>
+<li><label><input type="checkbox"><span>適度に改行している</span></label></li>
+<li><label><input type="checkbox"><span>スマホで読んでも読みやすい</span></label></li>
+<li><label><input type="checkbox"><span>難しい言葉を使っていない</span></label></li>
+<li><label><input type="checkbox"><span>絵文字を使いすぎていない</span></label></li>
+<li><label><input type="checkbox"><span>押し売り感がない</span></label></li>
+</ul>
+<h3>リンクチェック</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>特典URLをクリックして確認した</span></label></li>
+<li><label><input type="checkbox"><span>商品URLをクリックして確認した</span></label></li>
+<li><label><input type="checkbox"><span>すべてのリンクが正しく開く</span></label></li>
+<li><label><input type="checkbox"><span>読者が次に何をすればいいか分かる</span></label></li>
+</ul>
+<h3>配信チェック</h3>
+<ul class="checks">
+<li><label><input type="checkbox"><span>配信タイミングを設定した</span></label></li>
+<li><label><input type="checkbox"><span>自分自身でテスト登録した</span></label></li>
+<li><label><input type="checkbox"><span>実際に届く文章を確認した</span></label></li>
+<li><label><input type="checkbox"><span>スマホ画面で確認した</span></label></li>
+<li><label><input type="checkbox"><span>誤字脱字を確認した</span></label></li>
+</ul>
+</div></section>
+
+<section class="sec closing" id="s10"><div class="wrap">
+<h2 class="serif bighead">つむぎから最後に</h2><div class="bar"></div>
+<p>ここまで本当にお疲れさまでした。もしかすると、「こんな簡単なものでいいの?」と思ったかもしれません。でも、最初はそれでいいんです。大切なのは、<strong style="color:var(--gold-l)">完璧なものを作ることではなく、まず形にして動かしてみること。</strong>今回作った3通も、これで完成ではありません。実際に配信して、反応を見ながら少しずつ改善していけば大丈夫です。そして何より、<strong style="color:var(--gold-l)">実績ゼロでも、ここまで自分で作れた。</strong>その経験が、次のコンテンツを作るときの自信になります。</p>
+<p>小さく作る。実際に届ける。反応を見る。また改善する。この繰り返しで、一歩ずつ進んでいきましょう。あなたのコンテンツ販売が、ここから少しずつ形になっていくことを応援しています🌷</p>
+<p><strong style="color:#fff">3日間、本当にお疲れさまでした。</strong></p>
+<p style="margin-top:8px"><a class="btn" href="https://lin.ee/NiHlDGB" target="_blank" rel="noopener">LINEで友だち追加する</a></p>
+</div></section>
+
+
+<section class="end">
+<div class="wrap">
+<p class="sign">— つむぎ</p>
+<a class="btn" href="index.html">特典一覧に戻る</a>
+</div>
+</section>
+<footer>つむぎ公式LINEご登録者限定 特典アイテム 04</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var text=btn.closest('.prompt').querySelector('pre').innerText;
+    function done(){btn.textContent='コピーしました';btn.classList.add('done');setTimeout(function(){btn.textContent='コピーする';btn.classList.remove('done');},1800);}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,fallback);}else{fallback();}
+    function fallback(){var t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(t);}
+  });
+});
+</script>
+</body>
+</html>

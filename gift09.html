@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>AIで作るSNS告知文プロンプト集（実例付き完全攻略版）｜つむぎ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:wght@500;600&display=swap">
+<style>
+:root{--deep:#0A1630;--navy:#12244A;--mid:#1C3466;--gold:#C9A85C;--gold-l:#E6CC8A;--gold-d:#8A6A22;--ink:#1A2440;--muted:#4A5778;--line:#D8DEEA;--paper:#F3F5FA;--tint:#EAEEF6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--deep);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);line-height:1.9;font-size:16px}
+a{color:var(--gold-d)}a:hover{color:var(--navy)}
+.serif{font-family:'Shippori Mincho B1',serif}
+.latin{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;font-size:15px;margin:0}
+.wrap{max-width:860px;margin:0 auto}
+.wide{max-width:1080px;margin:0 auto}
+h2,h3,h4,p,ul,ol{margin:0}
+.bar{width:48px;height:2px;background:var(--gold)}
+
+/* top nav */
+.topnav{background:var(--deep);border-bottom:1px solid #22355E}
+.topnav .wide{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:12px}
+.topnav a{color:#C9D2E6;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center}
+.topnav a:hover{color:var(--gold-l)}
+.topnav .brand{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold);font-size:14px}
+
+/* hero */
+.hero{background:var(--deep);color:#EEF1F7;padding:88px 20px 96px;position:relative}
+.hero::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold)}
+.hero .wide{display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center}
+.rule{display:flex;align-items:center;gap:14px;color:var(--gold)}
+.rule .l{display:block;width:40px;height:1px;background:var(--gold)}
+.pill{font-size:15px;letter-spacing:.12em;color:#C9D2E6;border:1px solid #3A4E7A;padding:6px 20px;border-radius:999px}
+.hero h1{margin:0;font-weight:800;font-size:clamp(26px,4.4vw,50px);line-height:1.45;letter-spacing:.03em;color:#fff;max-width:960px}
+.hero .sub{font-weight:600;font-size:clamp(16px,2.1vw,21px);line-height:1.8;color:var(--gold-l);max-width:820px}
+
+/* toc */
+.toc{background:var(--navy);color:#EEF1F7;padding:56px 20px}
+.toc .wide{display:flex;flex-direction:column;gap:22px}
+.toc .eyebrow{color:var(--gold);text-align:center}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.toc a{display:flex;gap:14px;align-items:center;background:var(--deep);border:1px solid #2E4372;border-radius:6px;padding:14px 18px;color:#EEF1F7;text-decoration:none;min-height:44px;height:100%}
+.toc a:hover{border-color:var(--gold)}
+.toc .n{font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--gold);flex:0 0 auto}
+.toc .t{font-size:14px;line-height:1.6}
+
+/* sections */
+.sec{background:var(--paper);padding:80px 20px}
+.sec.alt,.sec.intro{background:#fff}
+.sec .wrap{display:flex;flex-direction:column;gap:20px}
+.sec-head{display:flex;gap:20px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.sec-no{flex:0 0 auto;width:68px;height:68px;border-radius:6px;background:var(--deep);color:var(--gold-l);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600}
+.sec-no.orn{font-size:22px}
+.sec-head h2{font-weight:800;font-size:clamp(20px,2.7vw,28px);line-height:1.55;color:var(--deep)}
+.sec h3{font-size:19px;color:var(--deep);line-height:1.6;padding-left:14px;border-left:3px solid var(--gold);margin-top:16px}
+.sec h4{font-size:17px;color:var(--navy);line-height:1.6;margin-top:8px}
+.sec ul,.sec ol{padding-left:1.5em;display:flex;flex-direction:column;gap:8px}
+.sec ul.lv1,.sec ol.lv1{padding-left:3em}
+.sec ul.lv2,.sec ol.lv2{padding-left:4.5em}
+.label{color:var(--gold-d);font-weight:700;font-size:15px;letter-spacing:.04em;margin-top:6px}
+.purpose{background:var(--tint);border-radius:6px;padding:14px 18px}
+.codelabel{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold-d);font-weight:600;margin-top:10px}
+.warn{background:#FFF8EC;border:1px solid #E8D3A6;border-radius:6px;padding:16px 20px;font-size:15px}
+
+/* prompt */
+.prompt{background:var(--deep);border-radius:8px;overflow:hidden;border:1px solid #2E4372}
+.prompt-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 10px 8px 18px;background:var(--navy);border-bottom:1px solid #2E4372}
+.prompt-bar span{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;color:var(--gold);font-size:14px}
+.copy{font:inherit;font-size:14px;font-weight:700;background:var(--gold);color:var(--deep);border:0;border-radius:4px;padding:8px 16px;min-height:44px;cursor:pointer}
+.copy:hover{background:var(--gold-l)}
+.copy.done{background:#fff}
+.prompt pre{margin:0;padding:20px 22px;color:#E4E9F3;font-family:'Zen Kaku Gothic New',sans-serif;font-size:14.5px;line-height:1.85;white-space:pre-wrap;word-break:break-word;max-height:520px;overflow:auto}
+
+/* panels */
+.example{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.sec:not(.alt):not(.intro) .example{background:#fff}
+.sec.alt .example,.sec.intro .example{background:var(--paper)}
+.ex-head{font-weight:700;color:var(--deep)}
+.info{background:var(--navy);color:#EEF1F7;border-radius:8px;padding:24px 28px;display:flex;flex-direction:column;gap:10px}
+.info strong{color:var(--gold-l)}
+.info .arrow{color:var(--gold);text-align:center;font-size:20px;line-height:1}
+.soft{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px 26px;display:flex;flex-direction:column;gap:10px}
+.sec.alt .soft,.sec.intro .soft{background:var(--paper)}
+.soft-h{font-weight:700;color:var(--deep)}
+
+/* days */
+.days{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.day{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.day-n{font-family:'Cormorant Garamond',serif;letter-spacing:.2em;color:var(--gold-d);font-weight:600}
+.sec.closing .btn{color:var(--deep)}
+
+/* checklist */
+.checks{list-style:none;padding:0 !important;display:flex;flex-direction:column;gap:10px}
+.checks label{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;cursor:pointer;min-height:44px}
+.sec.alt .checks label,.sec.intro .checks label{background:var(--paper)}
+.checks input{flex:0 0 auto;width:20px;height:20px;margin-top:5px;accent-color:var(--navy)}
+.checks input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold)}
+
+/* table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;min-width:560px}
+th{background:var(--deep);color:var(--gold-l);text-align:left;font-size:14px;letter-spacing:.04em;padding:14px 16px;vertical-align:top}
+td{padding:14px 16px;border-top:1px solid var(--line);vertical-align:top;font-size:15px}
+td:first-child{font-weight:700;color:var(--deep)}
+.blank-cell{display:block;min-height:28px;border-bottom:1px dashed #A9B4CC}
+
+/* closing */
+.sec.closing{background:var(--navy);color:#EEF1F7}
+.sec.closing p{color:#C9D2E6}
+.sec.closing .bighead{font-weight:800;font-size:clamp(22px,3.2vw,32px);line-height:1.6;color:#fff}
+.sec.closing .info{background:var(--deep)}
+
+/* end */
+.end{background:var(--deep);padding:64px 20px;text-align:center;color:#C9D2E6}
+.end .wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 28px;border-radius:4px;background:var(--gold);color:var(--deep);font-weight:700;text-decoration:none}
+.btn:hover{background:var(--gold-l);color:var(--deep)}
+.sign{font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold-l);letter-spacing:.2em}
+footer{background:var(--deep);color:#8C9BBD;padding:0 20px 28px;text-align:center;font-size:13px;letter-spacing:.08em}
+
+@media (max-width:760px){
+ .sec{padding:60px 16px}
+ .toc{padding:44px 16px}
+ .toc ol{grid-template-columns:minmax(0,1fr)}
+ .days{grid-template-columns:minmax(0,1fr)}
+ .sec-head{gap:14px}
+ .sec-no{width:52px;height:52px;font-size:26px}
+ .prompt pre{font-size:14px;padding:16px}
+ .info,.soft,.example{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="topnav"><div class="wide"><span class="brand">TSUMUGI</span><a href="index.html">← 特典一覧に戻る</a></div></div>
+
+<header class="hero">
+<div class="wide">
+<div class="rule latin"><span class="l"></span><span>GIFT ITEM 09</span><span class="l"></span></div>
+<p class="pill">つむぎ公式LINE 特典アイテム 09｜SNS告知</p>
+<h1 class="serif">AIで作るSNS告知文プロンプト集（実例付き完全攻略版）</h1>
+<p class="sub serif"><strong>〜共感型・実績型・チラ見せ型・限定型の4パターンで成約率（CVR）を極限まで高める〜</strong></p>
+</div>
+</header>
+
+<nav class="toc dark" aria-label="目次"><div class="wide"><p class="latin eyebrow">CONTENTS</p><ol><li><a href="#s1"><span class="n">01</span><span class="t">はじめに</span></a></li><li><a href="#s2"><span class="n">02</span><span class="t">本プロンプト集の活用手順（ステップ・バイ・ステップ）</span></a></li><li><a href="#s3"><span class="n">03</span><span class="t">① 共感型｜「これ、私のことかも」と思ってもらうパターン</span></a></li><li><a href="#s4"><span class="n">04</span><span class="t">② 実績・検証型｜「実際にやった人」の信頼を作るパターン</span></a></li><li><a href="#s5"><span class="n">05</span><span class="t">③ チラ見せ型｜「中身を少し見せて」読みたくさせるパターン</span></a></li><li><a href="#s6"><span class="n">06</span><span class="t">④ 限定・値上げ型｜「今買う理由」を伝えるパターン</span></a></li><li><a href="#s7"><span class="n">07</span><span class="t">4つの告知パターンの使い分けマトリクス</span></a></li><li><a href="#s8"><span class="n">08</span><span class="t">投稿前のセルフチェックシート（全6項目）</span></a></li></ol></div></nav>
+
+<section class="sec" id="s1"><div class="wrap">
+<div class="sec-head"><span class="sec-no">01</span><h2 class="serif">はじめに</h2></div>
+<div class="soft"><p class="">コンテンツを販売する際、「何を書いて告知すればいいかわからない」「売り込み感が強くなって読者に敬遠されてしまう」と悩むことはありませんか？</p><p class="">本プロンプト集は、note・Brain・Tips・ココナラなどで作成したWebコンテンツを、AI（ChatGPT、Claudeなど）を活用して効果的なSNS告知文へと変換するための<strong>実践型プロンプト＆出力実例集</strong>です。</p><p class="">AIに任せきりにするのではなく、「AIでベースとなる高品質な文章（8割）を作成し、最後にあなた自身の生の実体験や言葉（2割）を加える」ことで、読者の心に深く刺さる投稿を爆速で作成できます。</p></div>
+</div></section>
+<section class="sec alt" id="s2"><div class="wrap">
+<div class="sec-head"><span class="sec-no">02</span><h2 class="serif">本プロンプト集の活用手順（ステップ・バイ・ステップ）</h2></div>
+<ol><li><strong>販売商品情報の整理：</strong> 販売するコンテンツのターゲット、価格、解決できる悩み、実績データ等を簡単に書き出します。</li><li><strong>告知目的（フェーズ）の選定：</strong> 「販売前・認知拡大」「販売直後・実績アピール」「中身の提示」「値上げ前の駆け込み」など、現在のフェーズに合わせたパターンを選択します。</li><li><strong>プロンプトのコピペ：</strong> 対象パターンの「コピペ用プロンプト」をAIにそのまま貼り付けます。</li><li><strong>【 】箇所の書き換え：</strong> 【 】で囲まれた部分にご自身の最新商品情報を入力します。</li><li><strong>手直し（温度感の追加）：</strong> 出力された案の中から最適なものを選び、ご自身の「生の実体験」や「口調」を1〜2行付け加えて投稿します。</li></ol>
+</div></section>
+<section class="sec" id="s3"><div class="wrap">
+<div class="sec-head"><span class="sec-no">03</span><h2 class="serif">① 共感型｜「これ、私のことかも」と思ってもらうパターン</h2></div>
+<p class="purpose"><strong>【活用シーン】</strong> 販売前〜発売直後。売り込み感を抑え、ターゲットが日々抱えている悩みやモヤモヤに寄り添い、商品を自分ごと化させたいときに使います。</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre>あなたはコンテンツ販売に詳しいSNSマーケターです。
+以下の商品情報をもとに、X（旧Twitter）向けの「共感型」告知文を3案作成してください。
+
+【商品名】：【例：初心者向けCanvaデザイン攻略教材】
+【ターゲット】：【例：デザインに苦手意識がある副業初心者】
+【ターゲットが抱えている悩み】：【例：時間をかけてもダサいアイキャッチしか作れず発信に自信が持てない】
+【商品で得られる変化】：【例：テンプレ活用で10分でプロ級の画像が作れるようになる】
+【自分自身の体験・失敗・気づき】：【例：昔は1枚の画像に3時間かけて挫折しかけた】
+
+【作成条件】：
+・冒頭1〜2行でターゲットが「これ、私のことかも」と感じるフックを作る
+・読者の悩みや感情を具体的に言語化し、売り込み感を強くしない
+・自分の体験や気づきを自然に入れ、共感と親近感を生む
+・最後は商品紹介へ自然につなげる（押し売りしない）
+・Xで読みやすいように1行ごとに適度な改行と空白行を入れる
+・3案はそれぞれ切り口（失敗談重視 / 悩み共感重視 / ビフォーアフター重視）を変える</pre></div>
+<div class="example"><p class="ex-head">💡 AI出力実例（切り口：失敗談重視のケース）</p><p>デザインセンスがゼロすぎて、画像1枚作るのに3時間かかっていた頃の話をします。</p><p>「色使いがダサい…」「文字の配置が変…」と悩み、投稿を作るだけで夜が明ける毎日。</p><p>正解が分からず、副業自体を諦めかけたこともありました。</p><p>でも、センスじゃなくて「型」を知らなかっただけなんです。</p><p>かつての私と同じようにデザインで躓いている人のために、誰でも10分でプロ級画像が作れる「Canva攻略テンプレ」をまとめました。</p><p>デザインの悩みから解放されたい方はぜひ覗いてみてください👇</p><p>[商品リンク]</p></div>
+<div class="soft"><p class="soft-h"><strong>✨ 仕上げのワンポイント：</strong> 「自分も同じことで悩んでいた」という個人的な失敗談や感情を1つ追加することで、文章に一気に温度感が宿り、信頼性が急上昇します。</p></div>
+</div></section>
+<section class="sec alt" id="s4"><div class="wrap">
+<div class="sec-head"><span class="sec-no">04</span><h2 class="serif">② 実績・検証型｜「実際にやった人」の信頼を作るパターン</h2></div>
+<p class="purpose"><strong>【活用シーン】</strong> 販売中〜販売後。販売数、反応、実験結果などの具体的なデータを見せ、商品の確実性と社会的証明（UGC）を高めたいときに使います。</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre>あなたはデータ重視の実績派SNSマーケターです。
+以下の実績・検証データをもとに、X向けの「実績・検証型」告知文を3案作成してください。
+
+【商品名】：【例：X集客完全自動化ロードマップ】
+【販売価格】：【例：1,980円】
+【販売数】：【例：24時間で100部完売】
+【販売期間】：【例：リリース1日目】
+【SNSでの反応】：【例：Brainランキング1位獲得、口コミ30件以上】
+【実際に試したこと】：【例：予約投稿と自動導線構築を3ヶ月テストした結果】
+【わかったこと・学び】：【例：毎日手動でポストするより導線設計が全てだった】
+【商品で提供している内容】：【例：自動化構築の全5ステップ動画解説】
+
+【作成条件】：
+・数字や具体的な事実を冒頭に配置し、インパクトを作る
+・単なる自慢に見えないよう「なぜそうなったのか」という読者に役立つ学びを入れる
+・実際に試して検証したリアルなプロセスと再現性をアピールする
+・最後は商品紹介へ自然につなげる
+・Xで読みやすいように1行ごとに適度な改行と空白行を入れる
+・3案は（数字インパクト重視 / 作業効率化重視 / 読者の再現性重視）で変化をつける</pre></div>
+<div class="example"><p class="ex-head">💡 AI出力実例（切り口：時間削減・効率化の検証例）</p><p>【検証結果】SNS集客にかける時間を「月20時間→月2時間」まで減らせました。</p><p>試したことは、毎日必死にポストすることではなく「自動化の導線設計」を見直したことだけです。</p><p>リリース後24時間で100部が完売した裏側でも、この仕組みが稼働していました。</p><p>投稿に追われる毎日から抜け出し、質の高いコンテンツ作成に集中したい方へ。</p><p>私が3ヶ月かけて検証・構築した自動化の全ステップをこちらで公開しています👇</p><p>[商品リンク]</p></div>
+<div class="soft"><p class="soft-h"><strong>✨ 仕上げのワンポイント：</strong> 販売数だけをアピールするのではなく、「何をして、どんな再現性が得られたのか」という知識の共有まで添えると自慢に見えず、感謝される投稿になります。</p></div>
+</div></section>
+<section class="sec" id="s5"><div class="wrap">
+<div class="sec-head"><span class="sec-no">05</span><h2 class="serif">③ チラ見せ型｜「中身を少し見せて」読みたくさせるパターン</h2></div>
+<p class="purpose"><strong>【活用シーン】</strong> 販売全般。商品の中身やノウハウの一部（図解、テンプレ、具体例）を先行公開し、「もっと詳しく知りたい！」という期待感を醸成します。</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre>あなたはコンテンツの魅力を伝える専門ライターです。
+以下の商品情報をもとに、X向けの「チラ見せ型」告知文を3案作成してください。
+
+【商品名】：【例：ライティングの成約率を3倍にするPASONA法則実践書】
+【ターゲット】：【例：記事を書いても最後まで読まれないブロガー】
+【解決する悩み】：【例：読者が途中で離脱してしまい購入に至らない】
+【本編で紹介している重要ポイント】：【例：PASONA法則の『O（Option）』の書き方】
+【無料で見せてもよい具体例・ノウハウ】：【例：商品概要を書く際の実践フレーズ3選】
+【購入するとさらに得られる内容】：【例：成約率を跳ね上げる残り4ステップと添削事例】
+
+【作成条件】：
+・本編の価値が伝わる具体的な一部分を1つ開示する
+・無料投稿単体だけでも読者に「勉強になった」と思わせる有料級の内容にする
+・「ただし、これだけでは不十分で〇〇が必要」と本編への余白（続きが読みたい心理）を残す
+・冒頭1〜2行で強烈に興味を引くフレーズを入れる
+・最後は自然に商品紹介へつなげる
+・Xで読みやすいように改行を入れる
+・3案は（テンプレ公開 / 失敗回避テク公開 / チェックリスト提示）で作成する</pre></div>
+<div class="example"><p class="ex-head">💡 AI出力実例（切り口：テンプレートの一部公開例）</p><p>セールス文で商品を紹介するとき、ただ「機能」を書いていませんか？</p><p>成約率が高い人が使っている基本テンプレートを1つだけ公開します。</p><p>×「この講座ではマーケティングが学べます」</p><p>〇「この講座を受けると、SNS集客の迷いが消え、来月には最初の1件が成約します」</p><p>違いは『商品』ではなく『変化した未来』を伝えていること。</p><p>本編では、この成約率を3倍に跳ね上げる残り4つのライティング型を全て解説しています👇</p><p>[商品リンク]</p></div>
+<div class="soft"><p class="soft-h"><strong>✨ 仕上げのワンポイント：</strong> 「買ってください」と連呼するのではなく、無料投稿の中で小さく役立つ情報を「ギブ」することが、結果的に「本編はもっとすごそう」という期待感につながります。</p></div>
+</div></section>
+<section class="sec alt" id="s6"><div class="wrap">
+<div class="sec-head"><span class="sec-no">06</span><h2 class="serif">④ 限定・値上げ型｜「今買う理由」を伝えるパターン</h2></div>
+<p class="purpose"><strong>【活用シーン】</strong> 販売部数の上限、販売期限、価格変更など、後回しにしがちな購入検討層の背中を自然に押し、「今買うべき理由」を作りたいときに使います。</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre>あなたは行動心理学に詳しいSNSプロモーションの専門家です。
+以下の商品情報をもとに、X向けの「限定・値上げ型」告知文を3案作成してください。
+
+【商品名】：【例：Instagram運用完全ロードマップ】
+【現在の価格】：【例：980円（特別価格）】
+【次の価格】：【例：4,980円（通常価格）】
+【現在の販売数】：【例：47部】
+【限定部数・販売期限】：【例：残り3部完売、または本日23:59まで】
+【価格変更の理由】：【例：コンテンツ加筆およびサポート体制拡充のため】
+【おすすめしたい人】：【例：今年こそインスタ運用を本格化させたい人】
+【購入すると得られること】：【例：最安値で永久アクセス権と今後のアップデート教材を獲得できる】
+
+【作成条件】：
+・限定条件や価格変更のタイミングを明確に伝える
+・煽りすぎず、事実と理由をわかりやすく開示する
+・「今買う理由」が自然に伝わる比較（最安値の機会）を入れる
+・不必要に不安を煽る表現は使わない
+・最後に商品ページへの自然な導線を入れる
+・Xで読みやすいように改行を入れる
+・3案は（カウントダウン重視 / 透明性重視 / 最後のメッセージ重視）で作成する</pre></div>
+<div class="example"><p class="ex-head">💡 AI出力実例（切り口：値上げ理由を明記した透明性重視の例）</p><p>【お知らせ】Instagram運用ロードマップですが、本日23:59をもって初期価格（980円）での販売を終了します。</p><p>明日以降は加筆アップデートに伴い、通常価格（4,980円）に改定いたします。</p><p>早期に購入してくださった方を優遇するため、過去最安値での追加販売はありません。</p><p>「いつかインスタ運用を始めたい」と考えていた方は、最安値で手に入る最後の機会にぜひご活用ください👇</p><p>[商品リンク]</p></div>
+<div class="soft"><p class="soft-h"><strong>✨ 仕上げのワンポイント：</strong> 単に「値上げします」と言うだけでなく、「なぜ価格が変わるのか（コンテンツの追記・サポート追加など）」の納得できる理由を伝えると、誠実さが伝わり成約率が高まります。</p></div>
+</div></section>
+<section class="sec" id="s7"><div class="wrap">
+<div class="sec-head"><span class="sec-no">07</span><h2 class="serif">4つの告知パターンの使い分けマトリクス</h2></div>
+<div class="tbl"><table><tr><th>告知パターン</th><th>おすすめのタイミング</th><th>プロモーションの主目的</th></tr><tr><td><strong>① 共感型</strong></td><td>販売前・認知を広げたいとき</td><td>潜在的な悩みの掘り起こし、自分ごと化</td></tr><tr><td><strong>② 実績・検証型</strong></td><td>販売後・数字や反応が出てきたとき</td><td>社会的証明（信頼感）の提示、安心感醸成</td></tr><tr><td><strong>③ チラ見せ型</strong></td><td>商品の中身を伝えて興味を高めたいとき</td><td>価値の先行体験、本編への期待感醸成</td></tr><tr><td><strong>④ 限定・値上げ型</strong></td><td>販売終了・値上げ前など締め切り直前</td><td>「今買う理由」の提示、後回し防止・刈り取り</td></tr></table></div>
+</div></section>
+<section class="sec alt" id="s8"><div class="wrap">
+<div class="sec-head"><span class="sec-no">08</span><h2 class="serif">投稿前のセルフチェックシート（全6項目）</h2></div>
+<p>AIで生成した文章を調整し、実際のSNSに投稿する直前に確認すべき6つの必須チェックポイントです。</p>
+<ul class="checks"><li><label><input type="checkbox"><span><strong>ターゲットの明示：</strong> 冒頭や文章の中で「誰に向けた投稿なのか」が一目でわかるか？</span></label></li><li><label><input type="checkbox"><span><strong>フックの強度：</strong> スクロールする指が止まるような魅力的・共感的な冒頭1〜2行になっているか？</span></label></li><li><label><input type="checkbox"><span><strong>ベネフィットの明確化：</strong> 商品を買う（読む）ことで「どんな変化やメリットがあるか」が具体的に伝わっているか？</span></label></li><li><label><input type="checkbox"><span><strong>オリジナリティの追加：</strong> AIが作ったタタキ台に「自分自身の言葉・失敗談・感情」が1つ以上入っているか？</span></label></li><li><label><input type="checkbox"><span><strong>売り込み感の調整：</strong> 「買ってください」という押し売りではなく、読者へのギブや解決策の提示になっているか？</span></label></li><li><label><input type="checkbox"><span><strong>導線（CTA）の確認：</strong> 商品ページやLPへのリンク（URL）が正しく配置され、クリックしやすいか？</span></label></li></ul>
+</div></section>
+<section class="sec closing" id="s9"><div class="wrap">
+<h2 class="serif bighead"><strong>AIのスピード × あなたの生の体験＝最強の告知文</strong></h2><div class="bar"></div>
+<div class="info"><p>AIは、告知文を作る時間を短縮してくれる強力な相棒です。</p><p>ただし、AIが作った文章だけでは、あなた自身のリアルな経験や熱量までは伝わりません。</p><p>最後に「自分が実際に経験したこと」「読者に本当に伝えたいこと」を1つ加えてみてください。</p><p>それだけで文章の温度・信頼感は大きく変わります。</p><p>まずは4つのパターンのうち、今の販売フェーズに合うものを1つ選んで、さっそく投稿を作ってみましょう！</p></div>
+</div></section>
+
+<section class="end">
+<div class="wrap">
+<p class="sign">— つむぎ</p>
+<a class="btn" href="index.html">特典一覧に戻る</a>
+</div>
+</section>
+<footer>つむぎ公式LINEご登録者限定 特典アイテム 09</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var text=btn.closest('.prompt').querySelector('pre').innerText;
+    function done(){btn.textContent='コピーしました';btn.classList.add('done');setTimeout(function(){btn.textContent='コピーする';btn.classList.remove('done');},1800);}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,fallback);}else{fallback();}
+    function fallback(){var t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(t);}
+  });
+});
+</script>
+</body>
+</html>

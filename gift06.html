@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>【限定特典】強み発掘メーカー 診断結果・深掘り＆完全覚醒プロンプト集 V4｜つむぎ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:wght@500;600&display=swap">
+<style>
+:root{--deep:#0A1630;--navy:#12244A;--mid:#1C3466;--gold:#C9A85C;--gold-l:#E6CC8A;--gold-d:#8A6A22;--ink:#1A2440;--muted:#4A5778;--line:#D8DEEA;--paper:#F3F5FA;--tint:#EAEEF6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--deep);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);line-height:1.9;font-size:16px}
+a{color:var(--gold-d)}a:hover{color:var(--navy)}
+.serif{font-family:'Shippori Mincho B1',serif}
+.latin{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;font-size:15px;margin:0}
+.wrap{max-width:860px;margin:0 auto}
+.wide{max-width:1080px;margin:0 auto}
+h2,h3,h4,p,ul,ol{margin:0}
+.bar{width:48px;height:2px;background:var(--gold)}
+
+/* top nav */
+.topnav{background:var(--deep);border-bottom:1px solid #22355E}
+.topnav .wide{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:12px}
+.topnav a{color:#C9D2E6;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center}
+.topnav a:hover{color:var(--gold-l)}
+.topnav .brand{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold);font-size:14px}
+
+/* hero */
+.hero{background:var(--deep);color:#EEF1F7;padding:88px 20px 96px;position:relative}
+.hero::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold)}
+.hero .wide{display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center}
+.rule{display:flex;align-items:center;gap:14px;color:var(--gold)}
+.rule .l{display:block;width:40px;height:1px;background:var(--gold)}
+.pill{font-size:15px;letter-spacing:.12em;color:#C9D2E6;border:1px solid #3A4E7A;padding:6px 20px;border-radius:999px}
+.hero h1{margin:0;font-weight:800;font-size:clamp(26px,4.4vw,50px);line-height:1.45;letter-spacing:.03em;color:#fff;max-width:960px}
+.hero .sub{font-weight:600;font-size:clamp(16px,2.1vw,21px);line-height:1.8;color:var(--gold-l);max-width:820px}
+
+/* toc */
+.toc{background:var(--navy);color:#EEF1F7;padding:56px 20px}
+.toc .wide{display:flex;flex-direction:column;gap:22px}
+.toc .eyebrow{color:var(--gold);text-align:center}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.toc a{display:flex;gap:14px;align-items:center;background:var(--deep);border:1px solid #2E4372;border-radius:6px;padding:14px 18px;color:#EEF1F7;text-decoration:none;min-height:44px;height:100%}
+.toc a:hover{border-color:var(--gold)}
+.toc .n{font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--gold);flex:0 0 auto}
+.toc .t{font-size:14px;line-height:1.6}
+
+/* sections */
+.sec{background:var(--paper);padding:80px 20px}
+.sec.alt,.sec.intro{background:#fff}
+.sec .wrap{display:flex;flex-direction:column;gap:20px}
+.sec-head{display:flex;gap:20px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.sec-no{flex:0 0 auto;width:68px;height:68px;border-radius:6px;background:var(--deep);color:var(--gold-l);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600}
+.sec-no.orn{font-size:22px}
+.sec-head h2{font-weight:800;font-size:clamp(20px,2.7vw,28px);line-height:1.55;color:var(--deep)}
+.sec h3{font-size:19px;color:var(--deep);line-height:1.6;padding-left:14px;border-left:3px solid var(--gold);margin-top:16px}
+.sec h4{font-size:17px;color:var(--navy);line-height:1.6;margin-top:8px}
+.sec ul,.sec ol{padding-left:1.5em;display:flex;flex-direction:column;gap:8px}
+.sec ul.lv1,.sec ol.lv1{padding-left:3em}
+.sec ul.lv2,.sec ol.lv2{padding-left:4.5em}
+.label{color:var(--gold-d);font-weight:700;font-size:15px;letter-spacing:.04em;margin-top:6px}
+.purpose{background:var(--tint);border-radius:6px;padding:14px 18px}
+.codelabel{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold-d);font-weight:600;margin-top:10px}
+.warn{background:#FFF8EC;border:1px solid #E8D3A6;border-radius:6px;padding:16px 20px;font-size:15px}
+
+/* prompt */
+.prompt{background:var(--deep);border-radius:8px;overflow:hidden;border:1px solid #2E4372}
+.prompt-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 10px 8px 18px;background:var(--navy);border-bottom:1px solid #2E4372}
+.prompt-bar span{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;color:var(--gold);font-size:14px}
+.copy{font:inherit;font-size:14px;font-weight:700;background:var(--gold);color:var(--deep);border:0;border-radius:4px;padding:8px 16px;min-height:44px;cursor:pointer}
+.copy:hover{background:var(--gold-l)}
+.copy.done{background:#fff}
+.prompt pre{margin:0;padding:20px 22px;color:#E4E9F3;font-family:'Zen Kaku Gothic New',sans-serif;font-size:14.5px;line-height:1.85;white-space:pre-wrap;word-break:break-word;max-height:520px;overflow:auto}
+
+/* panels */
+.example{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.sec:not(.alt):not(.intro) .example{background:#fff}
+.sec.alt .example,.sec.intro .example{background:var(--paper)}
+.ex-head{font-weight:700;color:var(--deep)}
+.info{background:var(--navy);color:#EEF1F7;border-radius:8px;padding:24px 28px;display:flex;flex-direction:column;gap:10px}
+.info strong{color:var(--gold-l)}
+.info .arrow{color:var(--gold);text-align:center;font-size:20px;line-height:1}
+.soft{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px 26px;display:flex;flex-direction:column;gap:10px}
+.sec.alt .soft,.sec.intro .soft{background:var(--paper)}
+.soft-h{font-weight:700;color:var(--deep)}
+
+/* days */
+.days{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.day{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.day-n{font-family:'Cormorant Garamond',serif;letter-spacing:.2em;color:var(--gold-d);font-weight:600}
+.sec.closing .btn{color:var(--deep)}
+
+/* checklist */
+.checks{list-style:none;padding:0 !important;display:flex;flex-direction:column;gap:10px}
+.checks label{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;cursor:pointer;min-height:44px}
+.sec.alt .checks label,.sec.intro .checks label{background:var(--paper)}
+.checks input{flex:0 0 auto;width:20px;height:20px;margin-top:5px;accent-color:var(--navy)}
+.checks input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold)}
+
+/* table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;min-width:560px}
+th{background:var(--deep);color:var(--gold-l);text-align:left;font-size:14px;letter-spacing:.04em;padding:14px 16px;vertical-align:top}
+td{padding:14px 16px;border-top:1px solid var(--line);vertical-align:top;font-size:15px}
+td:first-child{font-weight:700;color:var(--deep)}
+.blank-cell{display:block;min-height:28px;border-bottom:1px dashed #A9B4CC}
+
+/* closing */
+.sec.closing{background:var(--navy);color:#EEF1F7}
+.sec.closing p{color:#C9D2E6}
+.sec.closing .bighead{font-weight:800;font-size:clamp(22px,3.2vw,32px);line-height:1.6;color:#fff}
+.sec.closing .info{background:var(--deep)}
+
+/* end */
+.end{background:var(--deep);padding:64px 20px;text-align:center;color:#C9D2E6}
+.end .wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 28px;border-radius:4px;background:var(--gold);color:var(--deep);font-weight:700;text-decoration:none}
+.btn:hover{background:var(--gold-l);color:var(--deep)}
+.sign{font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold-l);letter-spacing:.2em}
+footer{background:var(--deep);color:#8C9BBD;padding:0 20px 28px;text-align:center;font-size:13px;letter-spacing:.08em}
+
+@media (max-width:760px){
+ .sec{padding:60px 16px}
+ .toc{padding:44px 16px}
+ .toc ol{grid-template-columns:minmax(0,1fr)}
+ .days{grid-template-columns:minmax(0,1fr)}
+ .sec-head{gap:14px}
+ .sec-no{width:52px;height:52px;font-size:26px}
+ .prompt pre{font-size:14px;padding:16px}
+ .info,.soft,.example{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="topnav"><div class="wide"><span class="brand">TSUMUGI</span><a href="index.html">← 特典一覧に戻る</a></div></div>
+
+<header class="hero">
+<div class="wide">
+<div class="rule latin"><span class="l"></span><span>GIFT ITEM 06</span><span class="l"></span></div>
+<p class="pill">つむぎ公式LINE 特典アイテム 06｜原稿化＆覚醒</p>
+<h1 class="serif">【限定特典】強み発掘メーカー 診断結果・深掘り＆完全覚醒プロンプト集 V4</h1>
+
+</div>
+</header>
+
+<nav class="toc dark" aria-label="目次"><div class="wide"><p class="latin eyebrow">CONTENTS</p><ol><li><a href="#s2"><span class="n">01</span><span class="t">はじめに：なぜあなたの診断結果は「まだ半分」しか威力を発揮していないのか？</span></a></li><li><a href="#s3"><span class="n">02</span><span class="t">診断結果・完全覚醒のための「4ステップ・ワークフロー」</span></a></li><li><a href="#s4"><span class="n">03</span><span class="t">プロンプト①：診断結果を「2,500字超・熱狂を呼ぶ1本のnote記事」に育成するプロンプト</span></a></li><li><a href="#s5"><span class="n">04</span><span class="t">プロンプト②：診断結果を「X（旧Twitter）アルゴリズム最適化・連投＆独白ポスト5本セット」に変換するプロンプト</span></a></li><li><a href="#s6"><span class="n">05</span><span class="t">プロンプト③：診断結果を「マネタイズ直結・有料note/Brain完全構成案」に昇華させるプロンプト</span></a></li><li><a href="#s7"><span class="n">06</span><span class="t">プロンプト④：診断結果から「逆転ストーリー＆自己紹介文」を構築するプロンプト</span></a></li><li><a href="#s8"><span class="n">07</span><span class="t">プロンプト⑤：診断結果を「レビュー促進・集客用LP（セールスレター）原稿」に変換するプロンプト</span></a></li><li><a href="#s9"><span class="n">08</span><span class="t">プロンプトの効果を120%引き出す「運用テクニック」</span></a></li><li><a href="#s10"><span class="n">09</span><span class="t">おわりに：発信の第一歩を踏み出したあなたへ</span></a></li></ol></div></nav>
+
+<section class="sec intro" id="s1"><div class="wrap">
+<div class="warn"><strong>【利用上のご注意】</strong> 本ドキュメントは購入者限定の特別権利です。権利者の許可なく、無断転載・複製・第三者への共有・二次配布を行うことを固く禁じます。</div>
+</div></section>
+<section class="sec alt" id="s2"><div class="wrap">
+<div class="sec-head"><span class="sec-no">01</span><h2 class="serif">はじめに：なぜあなたの診断結果は「まだ半分」しか威力を発揮していないのか？</h2></div>
+<p>「強み発掘メーカー」をご利用いただき、誠にありがとうございます。まずは無事に診断を終えられたことを心より歓迎いたします。</p>
+<p>しかし、コンテンツビジネスの現場視点から、一つ重要な事実をお伝えしなければなりません。診断ツールで出力された結果は、3つの選択肢をもとに導き出された「全体の10%程度の表面的なデータ（＝入り口の言葉）」に過ぎません。</p>
+<p>多くの発信者は、この診断結果をそのままSNSやブログに貼り付けて満足してしまいます。しかしそれでは、他の診断者と同じような「どこかで見たことのある浅い発言」にとどまり、読者の心を動かすことはできません。</p>
+<p>診断結果の本質とは、あなたの中に眠る「原石の場所」を示した宝の地図です。宝を掘り当て、他者には絶対に真似できない「唯一無二の価値・強み」へと磨き上げるためには、高精度AI（ChatGPT / Claude）を活用した<strong>【言語化の深掘り・構造化プロセス】</strong>が不可欠となります。</p>
+<p>本プロンプト集は、実戦的なプロンプトエンジニアリング技術を注入し、あなたの「弱みと錯覚していた経験」や「曖昧な診断結果」を、読者を引きずり込む「熱狂的なコンテンツ」や「高単価な商品」へと極限まで進化させるために設計されています。</p>
+</div></section>
+<section class="sec" id="s3"><div class="wrap">
+<div class="sec-head"><span class="sec-no">02</span><h2 class="serif">診断結果・完全覚醒のための「4ステップ・ワークフロー」</h2></div>
+<div class="tbl"><table><tr><th><strong>ステップ</strong></th><th><strong>実行アクション</strong></th><th><strong>得られる成果物・効果</strong></th></tr><tr><td><strong>Step 1</strong></td><td>「強み発掘メーカー」で診断を実施し、結果全文をコピーする</td><td>潜在的な強み・葛藤データの抽出</td></tr><tr><td><strong>Step 2</strong></td><td>目的に応じたプロンプト（①〜⑤）を選択する</td><td>note・X・商品化・逆転ストーリー・LPなど最適な出口の決定</td></tr><tr><td><strong>Step 3</strong></td><td>プロンプト内の [診断結果] にコピーした文章を貼り付けてAIに送信する</td><td>プロレベルの高度な長文原稿・構成案の一括生成</td></tr><tr><td><strong>Step 4</strong></td><td>出力された文章に「あなただけの1行の実体験」を肉付けする</td><td>オリジナルコンテンツの完成・収益化への直結</td></tr></table></div>
+</div></section>
+<section class="sec alt" id="s4"><div class="wrap">
+<div class="sec-head"><span class="sec-no">03</span><h2 class="serif">プロンプト①：診断結果を「2,500字超・熱狂を呼ぶ1本のnote記事」に育成するプロンプト</h2></div>
+<p>診断結果を単なる解説文ではなく、読者が思わず夜中に読みふけってしまうような、ストーリーテリング型の長文note記事へ爆発的に拡大・進化させます。</p>
+<p class="codelabel">PROMPT CODE 01</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたはコンテンツマーケティング、ストーリーテリング、および人間心理学のプロフェッショナルライターです。
+以下の[診断結果]のデータを多角的に解剖し、読者の感情を激しく揺さぶり、共感と行動を巻き起こす長文note記事の本文を作成してください。
+
+# 診断結果
+[ここに強み発掘メーカーの診断結果を貼り付けてください]
+
+# 執筆の厳格な指示
+1. 【導入部：暗闇からの共感】
+   診断結果に含まれる「悩み・感情・葛藤」を抽出し、読者自身が「まさに今の自分のことだ」と錯覚するような、具体的で生々しい情景描写（時間、場所、周囲の音、胸の苦しさなど）から始めてください。
+2. 【中盤：コペルニクス的転換（逆転のパラダイムシフト）】
+   なぜその経験やコンプレックスが「致命的な弱み」ではなく、「誰も真似できない唯一無二の強み」なのかを、心理学的・論理的な視点から解き明かしてください。診断結果の言葉を10倍の深さで補強してください。
+3. 【実践編：小さな1歩の提示】
+   同じ闇の中で悩んでいる読者に向けて、明日から（あるいは今日今すぐ）実行できる具体的かつ負荷の低い「小さなアクションステップ」を1つだけ提案してください。
+4. 【文体・トーン＆マナー】
+   ・基本は「です・ます調」ですが、時に熱っぽく、時に静かに語りかけるようなメリハリのある文章構成にしてください。
+   ・「〜を享受する」「〜の功罪」といった論文のような堅苦しい専門用語は極力排除し、エモーショナルで血の通った会話調・独白調を維持してください。
+5. 【視覚的リズムと構造化】
+   ・適度に小見出し（###）を挟み、重要箇所は太字（**文字**）で強調してください。
+   ・要点には箇条書きを活用し、スマホの流し読みでも強烈なインプレッションが残るレイアウトにしてください。
+6. 【エンディング：余韻と問いかけ】
+   最後は一脈の希望を残しつつ、読者の心に深く刺さる深い問いかけで締めくくってください（例：「あなたもずっと、その優しさを隠して生きてきませんでしたか？」）。
+
+# 文字数・ボリューム
+2,500字〜3,500字程度の重厚で読み応えのある長文で出力してください。</pre></div>
+</div></section>
+<section class="sec" id="s5"><div class="wrap">
+<div class="sec-head"><span class="sec-no">04</span><h2 class="serif">プロンプト②：診断結果を「X（旧Twitter）アルゴリズム最適化・連投＆独白ポスト5本セット」に変換するプロンプト</h2></div>
+<p>SNSのタイムラインで圧倒的なスクロールストップ効果を発揮する、感情特化型のX投稿文を連番構成で一括生成します。</p>
+<p class="codelabel">PROMPT CODE 02</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたはSNSマーケティングおよびバイラルライティングの専門家です。
+以下の[診断結果]をもとに、Xで高いインプレッションとエンゲージメント（いいね・リポスト・保存）を獲得するための「独白調ポスト」を5本連続で作成してください。
+
+# 診断結果
+[ここに強み発掘メーカーの診断結果を貼り付けてください]
+
+# 執筆の厳格な指示
+1. 【トーン＆マナー：深夜の独白】
+   5本とも、教訓めいた格言や上から目線のノウハウ提供ではなく、「夜中に一人で部屋で悩んでいる時に漏れ出た本音」のようなリアリティのあるトーンで書いてください。
+2. 【リズムと改行】
+   1文を極力短くし、改行と空行を多用してスマホ画面での読みやすさと視覚的テンポを追求してください。
+3. 【人間味の演出】
+   「〜って思ってた」「ぶっちゃけ〜」「正直、ずっと怖かった」のような、感情のひだや言い淀みを意図的に配置してください。
+4. 【文字数制限】
+   各ポストは日本語で120字〜140字以内に厳密に収めてください。
+5. 【5連作のストーリー構成】
+   5本の投稿は独立して読めるだけでなく、全体として以下の時系列ストーリーを描くように構成してください：
+   ・ポスト1：【過去の暗闇】自分の弱さに打ちのめされていた時期のリアルな告白
+   ・ポスト2：【違和感の芽生え】「もしかしてこれは違うんじゃないか？」という気づきの瞬間
+   ・ポスト3：【強みの覚醒】診断結果をきっかけに「自分の強み」に目覚めた転換点
+   ・ポスト4：【現在の視界】視点が変わったことで世界がどう見え始めたか
+   ・ポスト5：【読者への共鳴】同じ悩みを抱える仲間へ差し伸べる問いかけと手
+6. 【締めくくりのバリエーション】
+   各ポストの末尾は、読者が思わずレスポンスや引用RTをしたくなる問いかけで締めてください。
+   （例：「〜ってこと、ありませんか？」「〜だった人、私だけじゃないはず。」）
+
+# 出力形式
+【ポスト1】
+（文章）
+
+【ポスト2】
+（文章）
+…という形式で5本出力してください。</pre></div>
+</div></section>
+<section class="sec alt" id="s6"><div class="wrap">
+<div class="sec-head"><span class="sec-no">05</span><h2 class="serif">プロンプト③：診断結果を「マネタイズ直結・有料note/Brain完全構成案」に昇華させるプロンプト</h2></div>
+<p>あなたの強み・診断結果を単なる情報発信で終わらせず、有料コンテンツ（100円〜2,980円、あるいは高額商品）として販売するための設計図へ昇華させます。</p>
+<p class="codelabel">PROMPT CODE 03</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたはデジタルコンテンツ販売および商品プロデュースのトッププロデューサーです。
+以下の[診断結果]に秘められた市場価値を抽出し、noteやBrain、Tipsで売れ続ける有料コンテンツの「全体構成案」を作成してください。
+
+# 診断結果
+[ここに強み発掘メーカーの診断結果を貼り付けてください]
+
+# 作成の厳格な指示
+1. 【キャッチーな商品タイトル案（3パターン）】
+   ベネフィット、ターゲット層、具体的な数字や実績、逆説的アプローチを取り入れた、思わずクリックしたくなるタイトル案を3つ作成してください。
+2. 【ターゲット設定と価格戦略】
+   ・想定ターゲットペルソナ（どんな悩みを持った人物か）
+   ・推奨販売価格（例：発売記念100円 → 最終価格2,980円など）とその価格設定のロジックを提示してください。
+3. 【5段階セールスストーリー構成案】
+   以下の5つのパーツごとに、どのような内容を書くべきか具体的な執筆内容の箇条書きと分量目安を提示してください：
+   ・パーツ1【導入（共感・自己紹介）】：読者の抱える悩みを100%言語化して心を開く
+   ・パーツ2【問題提起（真の原因）】：なぜ今までうまくいかなかったのか、従来の常識を壊す
+   ・パーツ3【解決策の提示（未来）】：診断結果をベースにした「新しい常識・強みの使い方」
+   ・パーツ4【実践手順（Step 1〜3）】：再現性の高い具体的アクションプラン（有料エリアの核）
+   ・パーツ5【まとめ・購入者特典オファー】：行動を促す背中押しと、レビュー誘導用特典案
+4. 【無料エリア/有料エリアの境界線設計】
+   どこまでを無料公開にし、どこからを有料ペイウォールにするかの境界線指定と、無料エリア最後で「続きを読まずにはいられなくする」フック文案を提示してください。</pre></div>
+</div></section>
+<section class="sec" id="s7"><div class="wrap">
+<div class="sec-head"><span class="sec-no">06</span><h2 class="serif">プロンプト④：診断結果から「逆転ストーリー＆自己紹介文」を構築するプロンプト</h2></div>
+<p>SNSのプロフィール欄や、有料記事の冒頭に配置するための「思わずファンになってしまう自己紹介・プロフィール文」を作成します。</p>
+<p class="codelabel">PROMPT CODE 04</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたはパーソナルブランディングの専門家です。
+以下の[診断結果]をもとに、読者の尊敬と共感を同時に集める「逆転劇プロフィール文」を作成してください。
+
+# 診断結果
+[ここに強み発掘メーカーの診断結果を貼り付けてください]
+
+# 執筆の指示
+1. 「過去の絶望・挫折」→「診断結果（強み）との出会いによる覚醒」→「現在の挑戦と理念」というV字回復のヒーローズ・ジャーニー（英雄の旅）構成で書いてください。
+2. 弱みを晒すことで親近感を生みだしつつ、最終的には専門家としての説得力を感じる文体にしてください。
+3. 短文版（Xプロフィール用の160字以内）と、長文版（note・ブログプロフィール用の800字程度）の2パターンを出力してください。</pre></div>
+</div></section>
+<section class="sec alt" id="s8"><div class="wrap">
+<div class="sec-head"><span class="sec-no">07</span><h2 class="serif">プロンプト⑤：診断結果を「レビュー促進・集客用LP（セールスレター）原稿」に変換するプロンプト</h2></div>
+<p>あなたが本記事や特典を配布・販売する際に、読者から熱狂的なレビューを引き出し、次の集客へと繋げるためのショートセールスレター原稿を作成します。</p>
+<p class="codelabel">PROMPT CODE 05</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたはダイレクトレスポンスマーケティング（DRM）のコピーライターです。
+以下の[診断結果]をもとに、読者が「どうしてもこの特典・記事を受け取りたい」「レビューを書かずにいられない」と感じるセールスコピーを作成してください。
+
+# 診断結果
+[ここに強み発掘メーカーの診断結果を貼り付けてください]
+
+# 執筆の指示
+1. PASONAの法則（Problem, Affinity, Solution, Offer, Narrowing down, Action）に基づいて文章を構成してください。
+2. 診断結果から「ターゲットが最も欲しがっている未来」を抽出し、魅惑的なオファー（提案）に変換してください。
+3. レビューを書くことのハードルを下げつつ、レビューを書く必然性を感じさせる誘導フレーズを盛り込んでください。</pre></div>
+</div></section>
+<section class="sec" id="s9"><div class="wrap">
+<div class="sec-head"><span class="sec-no">08</span><h2 class="serif">プロンプトの効果を120%引き出す「運用テクニック」</h2></div>
+<h3>⚡ プロンプト使いこなしの3大極意</h3>
+<ul><li><strong>【極意1】AIの出力結果に「自分の生の体験談」を1行だけ注入する</strong><br>AIが書き出した長文の中に、あなただけにしか語れない「具体的なエピソード（例：会社帰りの電車で泣いたこと、あの時言われたショックな一言）」を1〜2行だけ付け加えてください。それだけでAI特有の無機質な文章が消え去り、人間味のあふれる神原稿に昇華します。</li><li><strong>【極意2】ChatGPTとClaudeを使い分ける</strong><br>論理的で構造化された構成案（プロンプト③）やSNS投稿（プロンプト②）には「ChatGPT」、エモーショナルで情緒的な長文note（プロンプト①や④）には「Claude」を使うと、驚くほど高品質な文章が得られます。</li><li><strong>【極意3】診断結果のパラメーターを変えて何度も生成する</strong><br>「強み発掘メーカー」で別の選択肢を選び、異なる診断結果が出た際も本プロンプト集をご活用ください。複数の診断結果を組み合わせることで、あなたの中に眠る多面的な強みをいくつも掘り起こすことが可能です。</li></ul>
+</div></section>
+<section class="sec alt" id="s10"><div class="wrap">
+<div class="sec-head"><span class="sec-no">09</span><h2 class="serif">おわりに：発信の第一歩を踏み出したあなたへ</h2></div>
+<p>ここまでお読みいただき、本当にありがとうございました。</p>
+<p>自分の「強み」や「経験」は、自分自身では当たり前すぎてなかなか気づけないものです。しかし、このプロンプト集を使えば、あなたの内部にある葛藤やストーリーが、誰かを救う「輝くコンテンツ」へと生まれ変わります。</p>
+<p>まずはプロンプト①〜⑤の中から、今のあなたが一番ワクワクするものを選び、AIに診断結果を投げかけてみてください。画面の向こうに出力される「あなただけの素晴らしい文章」に、きっと驚くはずです。</p>
+<p>あなたの素晴らしい発信が、一人でも多くの読者に届くことを心より応援しております。</p>
+<p><strong>つむぎ</strong></p>
+</div></section>
+
+<section class="end">
+<div class="wrap">
+<p class="sign">— つむぎ</p>
+<a class="btn" href="index.html">特典一覧に戻る</a>
+</div>
+</section>
+<footer>つむぎ公式LINEご登録者限定 特典アイテム 06</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var text=btn.closest('.prompt').querySelector('pre').innerText;
+    function done(){btn.textContent='コピーしました';btn.classList.add('done');setTimeout(function(){btn.textContent='コピーする';btn.classList.remove('done');},1800);}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,fallback);}else{fallback();}
+    function fallback(){var t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(t);}
+  });
+});
+</script>
+</body>
+</html>

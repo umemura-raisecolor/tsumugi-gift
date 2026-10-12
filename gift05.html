@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>【限定特典】強み発掘×商品化アイデア出しプロンプト集 V2｜つむぎ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:wght@500;600&display=swap">
+<style>
+:root{--deep:#0A1630;--navy:#12244A;--mid:#1C3466;--gold:#C9A85C;--gold-l:#E6CC8A;--gold-d:#8A6A22;--ink:#1A2440;--muted:#4A5778;--line:#D8DEEA;--paper:#F3F5FA;--tint:#EAEEF6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--deep);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);line-height:1.9;font-size:16px}
+a{color:var(--gold-d)}a:hover{color:var(--navy)}
+.serif{font-family:'Shippori Mincho B1',serif}
+.latin{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;font-size:15px;margin:0}
+.wrap{max-width:860px;margin:0 auto}
+.wide{max-width:1080px;margin:0 auto}
+h2,h3,h4,p,ul,ol{margin:0}
+.bar{width:48px;height:2px;background:var(--gold)}
+
+/* top nav */
+.topnav{background:var(--deep);border-bottom:1px solid #22355E}
+.topnav .wide{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:12px}
+.topnav a{color:#C9D2E6;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center}
+.topnav a:hover{color:var(--gold-l)}
+.topnav .brand{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold);font-size:14px}
+
+/* hero */
+.hero{background:var(--deep);color:#EEF1F7;padding:88px 20px 96px;position:relative}
+.hero::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold)}
+.hero .wide{display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center}
+.rule{display:flex;align-items:center;gap:14px;color:var(--gold)}
+.rule .l{display:block;width:40px;height:1px;background:var(--gold)}
+.pill{font-size:15px;letter-spacing:.12em;color:#C9D2E6;border:1px solid #3A4E7A;padding:6px 20px;border-radius:999px}
+.hero h1{margin:0;font-weight:800;font-size:clamp(26px,4.4vw,50px);line-height:1.45;letter-spacing:.03em;color:#fff;max-width:960px}
+.hero .sub{font-weight:600;font-size:clamp(16px,2.1vw,21px);line-height:1.8;color:var(--gold-l);max-width:820px}
+
+/* toc */
+.toc{background:var(--navy);color:#EEF1F7;padding:56px 20px}
+.toc .wide{display:flex;flex-direction:column;gap:22px}
+.toc .eyebrow{color:var(--gold);text-align:center}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.toc a{display:flex;gap:14px;align-items:center;background:var(--deep);border:1px solid #2E4372;border-radius:6px;padding:14px 18px;color:#EEF1F7;text-decoration:none;min-height:44px;height:100%}
+.toc a:hover{border-color:var(--gold)}
+.toc .n{font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--gold);flex:0 0 auto}
+.toc .t{font-size:14px;line-height:1.6}
+
+/* sections */
+.sec{background:var(--paper);padding:80px 20px}
+.sec.alt,.sec.intro{background:#fff}
+.sec .wrap{display:flex;flex-direction:column;gap:20px}
+.sec-head{display:flex;gap:20px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.sec-no{flex:0 0 auto;width:68px;height:68px;border-radius:6px;background:var(--deep);color:var(--gold-l);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600}
+.sec-no.orn{font-size:22px}
+.sec-head h2{font-weight:800;font-size:clamp(20px,2.7vw,28px);line-height:1.55;color:var(--deep)}
+.sec h3{font-size:19px;color:var(--deep);line-height:1.6;padding-left:14px;border-left:3px solid var(--gold);margin-top:16px}
+.sec h4{font-size:17px;color:var(--navy);line-height:1.6;margin-top:8px}
+.sec ul,.sec ol{padding-left:1.5em;display:flex;flex-direction:column;gap:8px}
+.sec ul.lv1,.sec ol.lv1{padding-left:3em}
+.sec ul.lv2,.sec ol.lv2{padding-left:4.5em}
+.label{color:var(--gold-d);font-weight:700;font-size:15px;letter-spacing:.04em;margin-top:6px}
+.purpose{background:var(--tint);border-radius:6px;padding:14px 18px}
+.codelabel{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold-d);font-weight:600;margin-top:10px}
+.warn{background:#FFF8EC;border:1px solid #E8D3A6;border-radius:6px;padding:16px 20px;font-size:15px}
+
+/* prompt */
+.prompt{background:var(--deep);border-radius:8px;overflow:hidden;border:1px solid #2E4372}
+.prompt-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 10px 8px 18px;background:var(--navy);border-bottom:1px solid #2E4372}
+.prompt-bar span{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;color:var(--gold);font-size:14px}
+.copy{font:inherit;font-size:14px;font-weight:700;background:var(--gold);color:var(--deep);border:0;border-radius:4px;padding:8px 16px;min-height:44px;cursor:pointer}
+.copy:hover{background:var(--gold-l)}
+.copy.done{background:#fff}
+.prompt pre{margin:0;padding:20px 22px;color:#E4E9F3;font-family:'Zen Kaku Gothic New',sans-serif;font-size:14.5px;line-height:1.85;white-space:pre-wrap;word-break:break-word;max-height:520px;overflow:auto}
+
+/* panels */
+.example{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.sec:not(.alt):not(.intro) .example{background:#fff}
+.sec.alt .example,.sec.intro .example{background:var(--paper)}
+.ex-head{font-weight:700;color:var(--deep)}
+.info{background:var(--navy);color:#EEF1F7;border-radius:8px;padding:24px 28px;display:flex;flex-direction:column;gap:10px}
+.info strong{color:var(--gold-l)}
+.info .arrow{color:var(--gold);text-align:center;font-size:20px;line-height:1}
+.soft{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px 26px;display:flex;flex-direction:column;gap:10px}
+.sec.alt .soft,.sec.intro .soft{background:var(--paper)}
+.soft-h{font-weight:700;color:var(--deep)}
+
+/* days */
+.days{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.day{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.day-n{font-family:'Cormorant Garamond',serif;letter-spacing:.2em;color:var(--gold-d);font-weight:600}
+.sec.closing .btn{color:var(--deep)}
+
+/* checklist */
+.checks{list-style:none;padding:0 !important;display:flex;flex-direction:column;gap:10px}
+.checks label{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;cursor:pointer;min-height:44px}
+.sec.alt .checks label,.sec.intro .checks label{background:var(--paper)}
+.checks input{flex:0 0 auto;width:20px;height:20px;margin-top:5px;accent-color:var(--navy)}
+.checks input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold)}
+
+/* table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;min-width:560px}
+th{background:var(--deep);color:var(--gold-l);text-align:left;font-size:14px;letter-spacing:.04em;padding:14px 16px;vertical-align:top}
+td{padding:14px 16px;border-top:1px solid var(--line);vertical-align:top;font-size:15px}
+td:first-child{font-weight:700;color:var(--deep)}
+.blank-cell{display:block;min-height:28px;border-bottom:1px dashed #A9B4CC}
+
+/* closing */
+.sec.closing{background:var(--navy);color:#EEF1F7}
+.sec.closing p{color:#C9D2E6}
+.sec.closing .bighead{font-weight:800;font-size:clamp(22px,3.2vw,32px);line-height:1.6;color:#fff}
+.sec.closing .info{background:var(--deep)}
+
+/* end */
+.end{background:var(--deep);padding:64px 20px;text-align:center;color:#C9D2E6}
+.end .wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 28px;border-radius:4px;background:var(--gold);color:var(--deep);font-weight:700;text-decoration:none}
+.btn:hover{background:var(--gold-l);color:var(--deep)}
+.sign{font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold-l);letter-spacing:.2em}
+footer{background:var(--deep);color:#8C9BBD;padding:0 20px 28px;text-align:center;font-size:13px;letter-spacing:.08em}
+
+@media (max-width:760px){
+ .sec{padding:60px 16px}
+ .toc{padding:44px 16px}
+ .toc ol{grid-template-columns:minmax(0,1fr)}
+ .days{grid-template-columns:minmax(0,1fr)}
+ .sec-head{gap:14px}
+ .sec-no{width:52px;height:52px;font-size:26px}
+ .prompt pre{font-size:14px;padding:16px}
+ .info,.soft,.example{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="topnav"><div class="wide"><span class="brand">TSUMUGI</span><a href="index.html">← 特典一覧に戻る</a></div></div>
+
+<header class="hero">
+<div class="wide">
+<div class="rule latin"><span class="l"></span><span>GIFT ITEM 05</span><span class="l"></span></div>
+<p class="pill">つむぎ公式LINE 特典アイテム 05｜強み発掘</p>
+<h1 class="serif">【限定特典】強み発掘×商品化アイデア出しプロンプト集 V2</h1>
+
+</div>
+</header>
+
+<nav class="toc dark" aria-label="目次"><div class="wide"><p class="latin eyebrow">CONTENTS</p><ol><li><a href="#s2"><span class="n">01</span><span class="t">はじめに：なぜ「自分の強み」が分かっても、商品が作れないのか？</span></a></li><li><a href="#s3"><span class="n">02</span><span class="t">失敗しない商品化ワークフロー（4ステップ）</span></a></li><li><a href="#s4"><span class="n">03</span><span class="t">プロンプト①：診断結果から「勝てる商品テーマ」を策定する</span></a></li><li><a href="#s5"><span class="n">04</span><span class="t">プロンプト②：ターゲット（ペルソナ）の心理を限界まで具体化する</span></a></li><li><a href="#s6"><span class="n">05</span><span class="t">プロンプト③：売れる「商品タイトル」と「価格戦略」を決定する</span></a></li><li><a href="#s7"><span class="n">06</span><span class="t">プロンプト成果を最大化する「3つの実践テクニック」</span></a></li><li><a href="#s8"><span class="n">07</span><span class="t">おわりに：あなたの商品が、誰かの未来を変える</span></a></li></ol></div></nav>
+
+<section class="sec intro" id="s1"><div class="wrap">
+<div class="info"><p><strong>【本ドキュメントの目的】</strong></p><p>このたびは「強み発掘メーカー」をご紹介いただき、誠にありがとうございます。</p><p>このドキュメントは、「強み発掘メーカー」で導き出した診断結果をベースに、実際にBrainやnoteで“売れる商品”（テーマ・ペルソナ・コンセプト・タイトル・価格設定）へと具体的に昇華させるための【商品プロデュース専用プロンプトエンジニアリング集】です。</p></div>
+</div></section>
+<section class="sec alt" id="s2"><div class="wrap">
+<div class="sec-head"><span class="sec-no">01</span><h2 class="serif">はじめに：なぜ「自分の強み」が分かっても、商品が作れないのか？</h2></div>
+<p>「強み発掘メーカーを使って、自分の潜在的な強みや発信の軸は見えた。……だけど、ここからどうやって有料記事やBrainの商品に変えていけばいいんだろう？」</p>
+<p>このような壁にぶつかる方は少なくありません。強みを知ることと、それを「人がお金を払ってでも買いたい商品」に変換することの間には、マーケティング的な【構造化プロセス】が必要だからです。</p>
+<p>売れるコンテンツを作るためには、単に知識や体験を書き出すのではなく、以下の要素を緻密に組み上げる必要があります。</p>
+<ul><li><strong>市場の需要（マネタイズテーマ）：</strong> 誰のどんな痛みを解決するのか？</li><li><strong>ペルソナの言語化（心理描写）：</strong> どんな深夜の悩みに寄り添うのか？</li><li><strong>ポジション＆タイトル（オファー）：</strong> 思わずクリックしてしまう魅力的な商品名は？</li><li><strong>適切な価格戦略（バリュープライシング）：</strong> 内容量とターゲットに合わせた価格帯は？</li></ul>
+<p>本ドキュメントに収録された3つのプロンプトを順番に実行（Step 1 → Step 2 → Step 3）するだけで、AI（ChatGPT / Claude）があなたの優秀な「専属コンテンツプロデューサー」となり、膨大な市場データをもとに上記すべての要素を自動で弾き出してくれます。</p>
+</div></section>
+<section class="sec" id="s3"><div class="wrap">
+<div class="sec-head"><span class="sec-no">02</span><h2 class="serif">失敗しない商品化ワークフロー（4ステップ）</h2></div>
+<div class="tbl"><table><tr><th><strong>ステップ</strong></th><th><strong>実行アクション</strong></th><th><strong>得られる成果物・効果</strong></th></tr><tr><td><strong>Step 1</strong></td><td>「強み発掘メーカー」で診断を実施し、結果全文をコピーする</td><td>潜在的な強み・葛藤データの抽出</td></tr><tr><td><strong>Step 2</strong></td><td>【プロンプト①】を実行し、売れる「商品テーマ」を確定させる</td><td>実績ゼロでも勝てる3つの商品企画案と決定軸</td></tr><tr><td><strong>Step 3</strong></td><td>【プロンプト②】を実行し、「ターゲット（ペルソナ）」を深掘りする</td><td>検索窓に入力する本音・刺さるキャッチコピー5選</td></tr><tr><td><strong>Step 4</strong></td><td>【プロンプト③】を実行し、「タイトル・価格・構成」を決定する</td><td>即出品可能な5つのタイトル案と、松竹梅の価格戦略</td></tr></table></div>
+</div></section>
+<section class="sec alt" id="s4"><div class="wrap">
+<div class="sec-head"><span class="sec-no">03</span><h2 class="serif">プロンプト①：診断結果から「勝てる商品テーマ」を策定する</h2></div>
+<p>あなたの診断結果を解剖し、市場の悩みと合致するコンテンツの「テーマ・切り口」を3つ抽出し、その中で最もマネタイズしやすい決定打を理由付きで提案させます。</p>
+<p class="codelabel">PROMPT CODE 01</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたはデジタルコンテンツ販売およびBrain/noteのトッププロデューサーです。
+以下の[診断結果]をもとに、実績ゼロや後発組の立場でも十分に需要があり、実際に有料（Brain/note）で販売できる商品テーマ案を提案してください。
+
+# 診断結果
+[ここに強み発掘メーカーの診断結果を貼り付けてください]
+
+# 出力・提案してほしいこと
+1. 【商品テーマ案（3選）】
+   この診断結果の経験・強みから作成可能な商品テーマを3つ提案してください。それぞれのテーマについて、「誰の、どのような具体的悩みを解決するか」を明記してください。
+2. 【ポジショニングと勝算】
+   上記3つのテーマそれぞれについて、なぜそのテーマに需要が存在するのか、市場の背景や顧客心理の観点から解説してください。
+3. 【後発組向けの決定打（1選）】
+   提案した3つのテーマの中で、「実績ゼロ・後発組」の立場から参入しても、強力な既存競合に埋もれず最も差別化しやすい（勝ちやすい）テーマを1つ厳選し、その理由を客観的に提示してください。</pre></div>
+<div class="example"><p class="ex-head"><strong>💡 AI出力の実例イメージ（プロンプト①実行時）</strong></p><p>・<strong>提案テーマ1：</strong> 「婚活50回挫折から学んだ、自己肯定感を下げずに良縁を引き寄せる感情コントロール術」</p><p>・<strong>提案テーマ2：</strong> 「実績ゼロ・スキルなしから始める、最初の1円を稼ぐためのThreads×note超実践ロードマップ」</p><p>・<strong>後発組向けの決定打：</strong> テーマ2。理由：「大きな実績」を売る既存層に対し、「直近で0→1を達成した再現性」の方が初心者に響きやすいため。</p></div>
+</div></section>
+<section class="sec" id="s5"><div class="wrap">
+<div class="sec-head"><span class="sec-no">04</span><h2 class="serif">プロンプト②：ターゲット（ペルソナ）の心理を限界まで具体化する</h2></div>
+<p>決まったテーマに対して、商品を買う顧客が「どのような感情で悩んでいるか」を限界まで深掘りします。深夜に1人で検索する「泥臭い本音の言葉」をあぶり出すことで、心に突き刺さるコンテンツが作れるようになります。</p>
+<p class="codelabel">PROMPT CODE 02</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたは行動心理学およびダイレクトレスポンスマーケティング（DRM）に精通した消費者心理の専門家です。
+以下の[診断結果]と[商品テーマ]をもとに、この商品を最も必要としているターゲット（ペルソナ）の深層心理を鮮明に描いてください。
+
+# 診断結果
+[ここに強み発掘メーカーの診断結果を貼り付けてください]
+
+# 商品テーマ
+[プロンプト①で決まったテーマを貼り付けてください]
+
+# 描いてほしいこと
+1. 【深夜の検索ワード（5選）】
+   ターゲットが夜、布団の中で一人スマホを見ながら、検索窓やX/SNSの検索欄に思わず打ち込んでしまう「泥臭い本音のキーワード・感情の吐露」を5つ挙げてください。
+2. 【無料情報で解決できなかった真の原因（3選）】
+   ターゲットがこれまでYouTubeや無料ブログ等の情報を見ても悩みを解決できなかった根底の原因（思考の罠やノウハウコレクター化の原因）を3つ挙げてください。
+3. 【刺さるフックコピー（3選）】
+   タイムライン上でこの記事を見かけたターゲットが、「まさに自分のために書かれた文章だ」と直感して手を止めるキャッチコピー案を3つ提案してください。</pre></div>
+<div class="example"><p class="ex-head"><strong>💡 AI出力の実例イメージ（プロンプト②実行時）</strong></p><p>・<strong>深夜の検索ワード：</strong> 「副業 才能なし」「Threads ノウハウ通りやっても伸びない」「発信ネタがない 絶望」</p><p>・<strong>無料情報で解決できない理由：</strong> 抽象的な精神論ばかりで「今日の最初の1歩」の行動手順が書かれていないから。</p><p>・<strong>刺さるフックコピー：</strong> 『「私には何もない」とスマホを閉じたあなたへ。実績ゼロのまま1本目の記事を売る逆転のコンテンツ戦略』</p></div>
+</div></section>
+<section class="sec alt" id="s6"><div class="wrap">
+<div class="sec-head"><span class="sec-no">05</span><h2 class="serif">プロンプト③：売れる「商品タイトル」と「価格戦略」を決定する</h2></div>
+<p>ターゲットが明確になったら、最後に「商品タイトル」と「価格設定（松竹梅）」を弾き出します。実績ゼロを逆手に取った共感型タイトルの作り方や、コンテンツ量に応じた値付けの根拠まで提示させます。</p>
+<p class="codelabel">PROMPT CODE 03</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたはBrain・note・Tips等で数々のヒット商品をプロデュースしてきたコピーライティングおよび価格戦略の専門家です。
+以下の情報をもとに、実際に市場で売れる商品タイトル案と、商品の価値を最大化する価格設計案を提案してください。
+
+# 診断結果
+[ここに強み発掘メーカーの診断結果を貼り付けてください]
+
+# 商品テーマ・ターゲット像
+[プロンプト①および②で出力された内容を貼り付けてください]
+
+# 提案してほしいこと
+1. 【魅力的な商品タイトル案（5選）】
+   ターゲットのベネフィット、数字、具体性、または逆説的フックを取り入れた商品タイトル案を5つ提案してください。
+2. 【後発組向け・共感特化タイトル（1選）】
+   5つのうち、「実績ゼロ・後発組」という弱みを強みに変え、読者の強い共感を生み出すベストタイトルを1つ厳選し、選定理由を解説してください。
+3. 【松竹梅の価格戦略と推奨ボリューム】
+   商品の完成度やボリューム（文字数・特典の有無）に応じた3パターン（例：お試し版100円〜500円／標準版980円〜1,980円／完全版2,980円〜4,980円）の価格帯を提示し、それぞれの価格帯で盛り込むべきコンテンツの内容量を提案してください。</pre></div>
+<div class="example"><p class="ex-head"><strong>💡 AI出力の実例イメージ（プロンプト③実行時）</strong></p><p>・<strong>共感特化タイトル：</strong> 『【実績ゼロ・後発組専用】「何もない」を価値に変える。ポチポチ選ぶだけで商品が完成する強み発掘マネタイズ』</p><p>・<strong>価格戦略例：</strong></p><p>  - 【100円〜500円】：文字数3,000字（概念＋手順の解説のみ）</p><p>  - 【1,980円】：文字数8,000字（実践プロンプト集＋具体的な事例付き）</p><p>  - 【3,980円】：文字数15,000字（プロンプト集＋購入者限定サポート・動画解説付き）</p></div>
+</div></section>
+<section class="sec" id="s7"><div class="wrap">
+<div class="sec-head"><span class="sec-no">06</span><h2 class="serif">プロンプト成果を最大化する「3つの実践テクニック」</h2></div>
+<h3>⚡ AI回答の精度を跳ね上げる極意</h3>
+<ul><li><strong>【テクニック1】① → ② → ③ の一貫実行（対話型セッション）</strong><br>3つのプロンプトは、ChatGPTやClaudeの「同じチャットルーム内」で順番に送信してください。AIが前文のコンテキスト（文脈）を保持したまま思考するため、テーマから価格決定までブレのない一貫した商品企画が完成します。</li><li><strong>【テクニック2】フィードバックによる「追加指示」を活用する</strong><br>1回目の出力で違和感がある場合は、諦めずに「もっと初心者向けにして」「感情的な言葉を増やして」「ビジネス系ではなく恋愛系のトーンにして」と具体的に追加指示を出してください。対話を重ねるごとに精度が格段に上がります。</li><li><strong>【テクニック3】診断結果のバリエーションで複数商品を量産する</strong><br>「強み発掘メーカー」で異なる選択肢を選んで診断をやり直すことで、1人の人間の中に眠る別の切り口（例：「仕事の悩み」「対人関係の悩み」「時間管理の悩み」など）から、2本目・3本目の有料商品を量産することが可能です。</li></ul>
+</div></section>
+<section class="sec alt" id="s8"><div class="wrap">
+<div class="sec-head"><span class="sec-no">07</span><h2 class="serif">おわりに：あなたの商品が、誰かの未来を変える</h2></div>
+<p>ここまでお読みいただき、本当にありがとうございました。</p>
+<p>多くの人は「自分には売れるようなコンテンツなんて作れない」と諦めてしまいます。しかし、それはノウハウや価値が無いからではなく、<strong>「価値に変換するための構造化プロセス」</strong>を知らなかっただけに過ぎません。</p>
+<p>このプロンプト集を使えば、あなたの中にある小さな経験や挫折、乗り越えてきた日常が、誰かの深い悩みを解決する「素晴らしい価値」へと生まれ変わります。</p>
+<p>ぜひ、まずはプロンプト①を実行し、あなたの第一歩となる商品アイデアを手に入れてみてください。</p>
+<p>あなたのコンテンツが、多くの読者に届くことを心より応援しております。</p>
+<p><strong>つむぎ</strong></p>
+</div></section>
+
+<section class="end">
+<div class="wrap">
+<p class="sign">— つむぎ</p>
+<a class="btn" href="index.html">特典一覧に戻る</a>
+</div>
+</section>
+<footer>つむぎ公式LINEご登録者限定 特典アイテム 05</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var text=btn.closest('.prompt').querySelector('pre').innerText;
+    function done(){btn.textContent='コピーしました';btn.classList.add('done');setTimeout(function(){btn.textContent='コピーする';btn.classList.remove('done');},1800);}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,fallback);}else{fallback();}
+    function fallback(){var t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(t);}
+  });
+});
+</script>
+</body>
+</html>

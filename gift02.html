@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>【購入者限定特典】神プロンプト全集｜つむぎ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:wght@500;600&display=swap">
+<style>
+:root{--deep:#0A1630;--navy:#12244A;--mid:#1C3466;--gold:#C9A85C;--gold-l:#E6CC8A;--gold-d:#8A6A22;--ink:#1A2440;--muted:#4A5778;--line:#D8DEEA;--paper:#F3F5FA;--tint:#EAEEF6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--deep);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);line-height:1.9;font-size:16px}
+a{color:var(--gold-d)}a:hover{color:var(--navy)}
+.serif{font-family:'Shippori Mincho B1',serif}
+.latin{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;font-size:15px;margin:0}
+.wrap{max-width:860px;margin:0 auto}
+.wide{max-width:1080px;margin:0 auto}
+h2,h3,h4,p,ul,ol{margin:0}
+.bar{width:48px;height:2px;background:var(--gold)}
+
+/* top nav */
+.topnav{background:var(--deep);border-bottom:1px solid #22355E}
+.topnav .wide{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:12px}
+.topnav a{color:#C9D2E6;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center}
+.topnav a:hover{color:var(--gold-l)}
+.topnav .brand{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold);font-size:14px}
+
+/* hero */
+.hero{background:var(--deep);color:#EEF1F7;padding:88px 20px 96px;position:relative}
+.hero::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold)}
+.hero .wide{display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center}
+.rule{display:flex;align-items:center;gap:14px;color:var(--gold)}
+.rule .l{display:block;width:40px;height:1px;background:var(--gold)}
+.pill{font-size:15px;letter-spacing:.12em;color:#C9D2E6;border:1px solid #3A4E7A;padding:6px 20px;border-radius:999px}
+.hero h1{margin:0;font-weight:800;font-size:clamp(26px,4.4vw,50px);line-height:1.45;letter-spacing:.03em;color:#fff;max-width:960px}
+.hero .sub{font-weight:600;font-size:clamp(16px,2.1vw,21px);line-height:1.8;color:var(--gold-l);max-width:820px}
+
+/* toc */
+.toc{background:var(--navy);color:#EEF1F7;padding:56px 20px}
+.toc .wide{display:flex;flex-direction:column;gap:22px}
+.toc .eyebrow{color:var(--gold);text-align:center}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.toc a{display:flex;gap:14px;align-items:center;background:var(--deep);border:1px solid #2E4372;border-radius:6px;padding:14px 18px;color:#EEF1F7;text-decoration:none;min-height:44px;height:100%}
+.toc a:hover{border-color:var(--gold)}
+.toc .n{font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--gold);flex:0 0 auto}
+.toc .t{font-size:14px;line-height:1.6}
+
+/* sections */
+.sec{background:var(--paper);padding:80px 20px}
+.sec.alt,.sec.intro{background:#fff}
+.sec .wrap{display:flex;flex-direction:column;gap:20px}
+.sec-head{display:flex;gap:20px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.sec-no{flex:0 0 auto;width:68px;height:68px;border-radius:6px;background:var(--deep);color:var(--gold-l);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600}
+.sec-no.orn{font-size:22px}
+.sec-head h2{font-weight:800;font-size:clamp(20px,2.7vw,28px);line-height:1.55;color:var(--deep)}
+.sec h3{font-size:19px;color:var(--deep);line-height:1.6;padding-left:14px;border-left:3px solid var(--gold);margin-top:16px}
+.sec h4{font-size:17px;color:var(--navy);line-height:1.6;margin-top:8px}
+.sec ul,.sec ol{padding-left:1.5em;display:flex;flex-direction:column;gap:8px}
+.sec ul.lv1,.sec ol.lv1{padding-left:3em}
+.sec ul.lv2,.sec ol.lv2{padding-left:4.5em}
+.label{color:var(--gold-d);font-weight:700;font-size:15px;letter-spacing:.04em;margin-top:6px}
+.purpose{background:var(--tint);border-radius:6px;padding:14px 18px}
+.codelabel{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold-d);font-weight:600;margin-top:10px}
+.warn{background:#FFF8EC;border:1px solid #E8D3A6;border-radius:6px;padding:16px 20px;font-size:15px}
+
+/* prompt */
+.prompt{background:var(--deep);border-radius:8px;overflow:hidden;border:1px solid #2E4372}
+.prompt-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 10px 8px 18px;background:var(--navy);border-bottom:1px solid #2E4372}
+.prompt-bar span{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;color:var(--gold);font-size:14px}
+.copy{font:inherit;font-size:14px;font-weight:700;background:var(--gold);color:var(--deep);border:0;border-radius:4px;padding:8px 16px;min-height:44px;cursor:pointer}
+.copy:hover{background:var(--gold-l)}
+.copy.done{background:#fff}
+.prompt pre{margin:0;padding:20px 22px;color:#E4E9F3;font-family:'Zen Kaku Gothic New',sans-serif;font-size:14.5px;line-height:1.85;white-space:pre-wrap;word-break:break-word;max-height:520px;overflow:auto}
+
+/* panels */
+.example{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.sec:not(.alt):not(.intro) .example{background:#fff}
+.sec.alt .example,.sec.intro .example{background:var(--paper)}
+.ex-head{font-weight:700;color:var(--deep)}
+.info{background:var(--navy);color:#EEF1F7;border-radius:8px;padding:24px 28px;display:flex;flex-direction:column;gap:10px}
+.info strong{color:var(--gold-l)}
+.info .arrow{color:var(--gold);text-align:center;font-size:20px;line-height:1}
+.soft{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px 26px;display:flex;flex-direction:column;gap:10px}
+.sec.alt .soft,.sec.intro .soft{background:var(--paper)}
+.soft-h{font-weight:700;color:var(--deep)}
+
+/* days */
+.days{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.day{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.day-n{font-family:'Cormorant Garamond',serif;letter-spacing:.2em;color:var(--gold-d);font-weight:600}
+.sec.closing .btn{color:var(--deep)}
+
+/* checklist */
+.checks{list-style:none;padding:0 !important;display:flex;flex-direction:column;gap:10px}
+.checks label{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;cursor:pointer;min-height:44px}
+.sec.alt .checks label,.sec.intro .checks label{background:var(--paper)}
+.checks input{flex:0 0 auto;width:20px;height:20px;margin-top:5px;accent-color:var(--navy)}
+.checks input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold)}
+
+/* table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;min-width:560px}
+th{background:var(--deep);color:var(--gold-l);text-align:left;font-size:14px;letter-spacing:.04em;padding:14px 16px;vertical-align:top}
+td{padding:14px 16px;border-top:1px solid var(--line);vertical-align:top;font-size:15px}
+td:first-child{font-weight:700;color:var(--deep)}
+.blank-cell{display:block;min-height:28px;border-bottom:1px dashed #A9B4CC}
+
+/* closing */
+.sec.closing{background:var(--navy);color:#EEF1F7}
+.sec.closing p{color:#C9D2E6}
+.sec.closing .bighead{font-weight:800;font-size:clamp(22px,3.2vw,32px);line-height:1.6;color:#fff}
+.sec.closing .info{background:var(--deep)}
+
+/* end */
+.end{background:var(--deep);padding:64px 20px;text-align:center;color:#C9D2E6}
+.end .wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 28px;border-radius:4px;background:var(--gold);color:var(--deep);font-weight:700;text-decoration:none}
+.btn:hover{background:var(--gold-l);color:var(--deep)}
+.sign{font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold-l);letter-spacing:.2em}
+footer{background:var(--deep);color:#8C9BBD;padding:0 20px 28px;text-align:center;font-size:13px;letter-spacing:.08em}
+
+@media (max-width:760px){
+ .sec{padding:60px 16px}
+ .toc{padding:44px 16px}
+ .toc ol{grid-template-columns:minmax(0,1fr)}
+ .days{grid-template-columns:minmax(0,1fr)}
+ .sec-head{gap:14px}
+ .sec-no{width:52px;height:52px;font-size:26px}
+ .prompt pre{font-size:14px;padding:16px}
+ .info,.soft,.example{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="topnav"><div class="wide"><span class="brand">TSUMUGI</span><a href="index.html">← 特典一覧に戻る</a></div></div>
+
+<header class="hero">
+<div class="wide">
+<div class="rule latin"><span class="l"></span><span>GIFT ITEM 02</span><span class="l"></span></div>
+<p class="pill">つむぎ公式LINE 特典アイテム 02｜全行程自動化</p>
+<h1 class="serif">【購入者限定特典】神プロンプト全集</h1>
+<p class="sub serif"><strong>〜コピペして使える実践テンプレート集＆AI×コンテンツ作成・最速マネタイズ完全攻略キット〜</strong></p>
+</div>
+</header>
+
+<nav class="toc dark" aria-label="目次"><div class="wide"><p class="latin eyebrow">CONTENTS</p><ol><li><a href="#s1"><span class="n">◆</span><span class="t">はじめに</span></a></li><li><a href="#s2"><span class="n">◆</span><span class="t">この特典でできること</span></a></li><li><a href="#s3"><span class="n">◆</span><span class="t">推奨作業フロー</span></a></li><li><a href="#s4"><span class="n">01</span><span class="t">STEP 01：「売れる悩み」を見つける</span></a></li><li><a href="#s5"><span class="n">02</span><span class="t">STEP 02：「自分だから選ばれる理由」を作る</span></a></li><li><a href="#s6"><span class="n">03</span><span class="t">STEP 03：Brainの記事を一気に作る</span></a></li><li><a href="#s7"><span class="n">04</span><span class="t">STEP 04：LINEで読者との関係を作る</span></a></li><li><a href="#s8"><span class="n">◆</span><span class="t">4つのプロンプトを使うときのポイント</span></a></li><li><a href="#s9"><span class="n">◆</span><span class="t">最後に</span></a></li></ol></div></nav>
+
+<section class="sec" id="s1"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">はじめに</h2></div>
+<p>この特典では、本編でご紹介した</p>
+<p><strong>「ジャンル選定 → ターゲット分析 → 差別化 → コンテンツ作成 → LINE導線」</strong></p>
+<p>までを、AIを使って一気に進めるためのプロンプトをまとめました。</p>
+<ul><li>「AIを使ってみたいけど、何を入力すればいいか分からない」</li><li>「毎回ゼロからプロンプトを考えるのが面倒」</li><li>「AIに記事を書かせても、なんとなく薄い内容になってしまう」</li></ul>
+<p>そんな方のために、そのままコピー＆ペーストして使える形にしています。</p>
+<p>必要な部分だけを書き換えて、何度でも使ってください。</p>
+</div></section>
+<section class="sec alt" id="s2"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">この特典でできること</h2></div>
+<p>この4つのプロンプトを順番に使うだけで、以下のステップをAIと一緒に進められます。</p>
+<div class="info"><p><strong>STEP 1：</strong>「売れる悩み」を見つける</p><p class="arrow" aria-hidden="true">↓</p><p><strong>STEP 2：</strong>「自分だから選ばれる切り口」を作る</p><p class="arrow" aria-hidden="true">↓</p><p><strong>STEP 3：</strong>Brainの本文を一気に作る</p><p class="arrow" aria-hidden="true">↓</p><p><strong>STEP 4：</strong>LINEで読者との関係を作る</p></div>
+<p>つまり、<strong>「何を売ればいい？」</strong>から<strong>「どうやって売る？」</strong>までを、一つの流れとして設計できます。</p>
+</div></section>
+<section class="sec" id="s3"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">推奨作業フロー</h2></div>
+<p>基本は、<strong>① → ② → ③ → ④</strong> の順番で進めてください。</p>
+<div class="tbl"><table><tr><th><strong>STEP</strong></th><th><strong>やること</strong></th><th><strong>目的</strong></th></tr><tr><td><strong>01</strong></td><td>HARM市場分析＆ターゲット本音抽出</td><td>売れるジャンルと深い悩みを見つける</td></tr><tr><td><strong>02</strong></td><td>競合差別化＆コンセプト確定</td><td>「自分だから選ばれる理由」を作る</td></tr><tr><td><strong>03</strong></td><td>Brain本文一括執筆</td><td>読者の感情を動かすコンテンツを作る</td></tr><tr><td><strong>04</strong></td><td>LINEステップ配信作成</td><td>購入後・登録後の導線を作る</td></tr></table></div>
+<div class="info"><p><strong>【ポイント】</strong></p><p>①と②で「何を売るか」を決めます。</p><p>そのあと、③で「商品そのもの」を作り、④で「商品につながる導線」を作ります。</p><p>いきなり③の文章作成から始めるのではなく、<strong>①→②で土台を作ってから執筆することが重要</strong>です。</p></div>
+</div></section>
+<section class="sec alt" id="s4"><div class="wrap">
+<div class="sec-head"><span class="sec-no">01</span><h2 class="serif">STEP 01：「売れる悩み」を見つける</h2></div>
+<h3>HARM市場分析＆ターゲット本音抽出プロンプト</h3>
+<h3>このプロンプトを使うタイミング</h3>
+<p>コンテンツ販売を始めるときの、一番最初のジャンル選定で使います。</p>
+<p>「自分が発信したいこと」だけで決めるのではなく、「実際にお金を払ってでも解決したい悩みがあるか？」という視点から市場を分析します。</p>
+<p class="label">▼ コピペ用プロンプト</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたはWebマーケティングと消費者心理学のトップエキスパートです。
+後発組の個人がコンテンツ販売で最速マネタイズを実現するために、HARM（CHARM）の法則に基づいて、
+「切実な悩みを持つターゲット」
+のリサーチと本音の抽出を行ってください。
+
+# 参入候補ジャンル
+[ここにジャンルを入力]
+
+# 分析・抽出の条件
+1. ターゲットが「夜、暗い部屋で一人でスマホを見ながら検索窓に打ち込んでいるような、生々しい本音の言葉（心の声）」を10個抽出してください。
+
+2. 表面的な悩み（建前）と、その裏側にあるディープな本音（欲望・恐怖）を比較表にしてください。
+
+3. 抽出した悩みに対して、以下の3つの判定フィルターを適用してください。
+・切実性：放置すると精神面・人生・仕事・人間関係などに大きな支障が出るか？
+・緊急性：「できればいつか」ではなく、「今すぐ解決したい」と思う悩みか？
+・対価性：無料情報だけではなく、有料でも解決したいと思うレベルの悩みか？
+それぞれについて評価し、「参入すべき理由」を具体的に言語化してください。
+
+4. このターゲットに対して、実績ゼロの後発組が「痛みの解像度の高さ」で選ばれるためのポジション提示案（コンセプトの軸）を3つ提案してください。
+
+# 出力フォーマット
+・ターゲットの生の叫び（10選）
+・建前 vs 本音（比較表）
+・3つの判定フィルターによる検証結果
+・後発組が勝つためのコンセプト軸（3案）</pre></div>
+<p class="label">▼ 記入例</p>
+<div class="info"><p><strong>参入候補ジャンル：</strong></p><p>50代女性の恋愛・婚活</p><p>特に、「もう一度恋愛したいけれど、年齢的にもう無理かもしれないと諦めかけている女性」をターゲットにする。</p><p>※自分自身が経験したことや、詳しく語れるテーマを入力すると、よりリアルな本音を引き出しやすくなります。</p></div>
+<h3>STEP 01-2：さらに深掘りする「追撃プロンプト」</h3>
+<p>STEP 01でAIから回答が出てきたら、さらに深掘りしてみましょう。</p>
+<p>表面的な悩みだけではなく、<strong>「その人が本当は何を恐れているのか」</strong>まで掘り下げることで、コンテンツの訴求力が一気に高まります。</p>
+<p class="label">▼ 追撃パターンA：感情の解像度を上げる</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre>先ほど出力された本音の中から、「恐怖」と「葛藤」が最も強いものを1つ選んでください。
+その悩みを抱えている人について、
+・どんな状況にいるのか
+・朝から夜までどんな行動をしているのか
+・何を検索しているのか
+・誰にも言えないことは何か
+・どんな瞬間に苦しくなるのか
+・心の中でどんな言葉をつぶやいているのか
+を具体的に描写してください。
+
+まるで実在する1人の人物を追いかけるような、「ある1日のショートストーリー」として書いてください。
+抽象的な表現ではなく、できるだけ具体的で生々しい描写を使ってください。</pre></div>
+<p class="label">▼ 追撃パターンB：無料情報との違いを明確にする</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre>このターゲットが、
+・YouTube
+・Google検索
+・無料ブログ
+・SNS投稿
+などの無料情報を見ても、悩みを解決できなかった理由を分析してください。
+
+単に「情報が足りなかった」ではなく、
+・無料情報のどこに不満を感じたのか
+・なぜ実践できなかったのか
+・どこで挫折したのか
+・本当は何を教えてほしかったのか
+・有料なら何にお金を払いたいと思うのか
+という観点から、5つ挙げてください。</pre></div>
+</div></section>
+<section class="sec" id="s5"><div class="wrap">
+<div class="sec-head"><span class="sec-no">02</span><h2 class="serif">STEP 02：「自分だから選ばれる理由」を作る</h2></div>
+<h3>競合差別化＆コンセプト確定プロンプト</h3>
+<h3>このプロンプトを使うタイミング</h3>
+<p>STEP 01で、「どんな市場に入るのか」「誰のどんな悩みを解決するのか」が決まったあとに使います。</p>
+<p>ここでは、強い競合と同じことを言うのではなく、「少し視点をズラして、後発組でも選ばれる切り口」を作ります。</p>
+<p class="label">▼ コピペ用プロンプト</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたはWebマーケティングのトップ戦略家です。
+抽出した「ターゲットの悩み」と「参入ジャンル」に基づき、
+先行する強者（競合）と真っ向勝負を避け、
+後発組でも選ばれる「差別化コンセプト」
+を構築してください。
+
+# 参入ジャンル
+[STEP 01で決定したジャンルを入力]
+
+# ターゲットの本音
+[STEP 01で抽出された「生々しい本音」をそのまま貼り付け]
+
+# 分析・出力指示
+1. このジャンルで強い競合発信者がよく発信している「お決まりのノウハウ（王道パターン）」を3つ挙げてください。
+
+2. その王道ノウハウでは救われない、ターゲットの「裏のストレス・限界・モヤモヤ」を分析してください。
+
+3. 競合の王道から視点をズラし、実績ゼロの後発組が「痛みの解像度の高さ」で選ばれるための差別化コンセプト案を3つ提案してください。
+
+4. 提案したそれぞれのコンセプトについて、そのまま商品タイトルとして使える魅力的なタイトル案を3つずつ作成してください。
+
+# 出力フォーマット
+・競合の王道パターン（3選）
+・読者が感じる「王道の限界」
+・後発組のための差別化コンセプト案（3選）
+・各コンセプトの商品タイトル案</pre></div>
+<p class="label">▼ 記入例</p>
+<div class="info"><p><strong>ジャンル：</strong></p><p>50代女性の恋愛・婚活</p><p><strong>ターゲットの本音：</strong></p><p>「もう若くないから恋愛は無理だと思っている。でも、本当は誰かにときめきたい。」</p><p>※STEP 01で出てきた本音を、そのままコピーして貼り付ければOKです。</p></div>
+</div></section>
+<section class="sec alt" id="s6"><div class="wrap">
+<div class="sec-head"><span class="sec-no">03</span><h2 class="serif">STEP 03：Brainの記事を一気に作る</h2></div>
+<h3>Brain本文一括執筆プロンプト</h3>
+<h3>このプロンプトを使うタイミング</h3>
+<p>STEP 01・STEP 02で、「誰に」「何を」「どんな切り口で届けるのか」が決まったあとに使います。</p>
+<p>ここから実際に、Brainの記事本文を作っていきます。</p>
+<p class="label">▼ コピペ用プロンプト</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたはWebマーケティングとコンテンツ販売のプロ執筆者です。
+これから提示する「コンセプト」と「記事の骨組み」に基づき、
+読者が「これは自分のことだ」と感じ、「この先を知りたい」と思い、
+最終的に購入・実践へ進みたくなるBrain記事の本文を作成してください。
+
+# 前提情報
+・設定したコンセプト：
+[STEP 02で決定したコンセプトを入力]
+
+・ターゲットの本音：
+[STEP 01で抽出した生の声を入力]
+
+# 記事の骨組み
+【パーツ1：導入・共感】
+ターゲットが抱えている悩みに寄り添い、「まさに自分のことだ」と思ってもらえるようなストーリーから始めてください。
+抽象的な説明ではなく、具体的な情景や感情を描いてください。
+
+【パーツ2：問題提起・原因】
+なぜ今までうまくいかなかったのか。
+従来のやり方の問題点と、本質的な原因を分かりやすく提示してください。
+読者を責めるのではなく、「あなたが悪かったわけではない」という視点を大切にしてください。
+
+【パーツ3：解決策・理想の未来】
+この記事を読むことで、「何が変わるのか」「どんな未来を目指せるのか」を具体的に提示してください。
+そのうえで、解決までの全体像を分かりやすく説明してください。
+
+【パーツ4：実践手順】
+初心者でも迷わないように、
+Step1 / Step2 / Step3
+のように具体的な手順へ分解してください。
+「何をするのか」だけでなく、「なぜそれをするのか」「具体的にどうやるのか」まで説明してください。
+
+【パーツ5：まとめ・オファー】
+記事全体を簡潔にまとめ、「今の自分にもできそう」と思ってもらえる前向きなメッセージで締めくくってください。
+必要に応じて、レビューへの協力やLINE登録など、次の行動への自然な案内も入れてください。
+
+# 執筆ルール
+・堅苦しい表現は避ける
+・親しみやすい「です・ます調」で書く
+・読者に話しかけるような文章にする
+・具体的な情景描写を入れる
+・ターゲットの生の言葉を適切に使用する
+・流し読みでも内容が分かる構成にする
+・重要な部分は【箇条書き】や【太字】で強調する
+・一文を長くしすぎない
+・同じ内容を繰り返さない
+・読者を不必要に煽らない
+・実際に行動へ移せる具体性を重視する</pre></div>
+<h3>STEP 03-2：AIの文章を「完成品」にする3ステップ</h3>
+<p>AIに文章を書かせたら、そのまま販売するのではなく、最後に必ず自分の手を入れてください。</p>
+<p>AIは便利ですが、放っておくと妙に優等生っぽい文章を生成します。そこで、最後にこの3つをチェックします。</p>
+<ol><li><strong>「生の声」を入れる：</strong><br>STEP 01で抽出した、ターゲット本人が言いそうな言葉（例：「もう私には無理なのかな」「こんなこと、誰にも相談できない」「本当はもう一度、ときめきたい」など）を文章の中に意図的に入れます。きれいな文章より、「分かってくれている」と感じる言葉を優先します。</li><li><strong>難しい言葉をなくす：</strong><br>AIが「〜を享受できます」「〜が奏功します」「〜を実現するためには」などの難しい表現を使っていたら、「〜を手に入れられます」のように、友達に説明するくらいの自然な言葉に置き換えます。</li><li><strong>見た目を整える：</strong><br>文章が長く続いていたら、箇条書きにする・見出しをつける・重要部分を太字にする・1段落を短くする・「結論 → 理由 → 具体例」の順番にするなどして分解します。読みやすさは内容と同じくらい大切です。</li></ol>
+</div></section>
+<section class="sec" id="s7"><div class="wrap">
+<div class="sec-head"><span class="sec-no">04</span><h2 class="serif">STEP 04：LINEで読者との関係を作る</h2></div>
+<h3>LINEステップ配信作成プロンプト</h3>
+<h3>このプロンプトを使うタイミング</h3>
+<p>Brain記事が完成し、「読者をLINEへ誘導する導線」ができたあとに使います。</p>
+<p>LINE登録後に自動で届くメッセージを作成し、信頼構築 → 教育 → 次の提案までの流れを設計します。</p>
+<p class="label">▼ コピペ用プロンプト</p>
+<div class="prompt"><div class="prompt-bar"><span>PROMPT</span><button type="button" class="copy" aria-label="プロンプトをコピー">コピーする</button></div><pre># 依頼
+あなたは公式LINEマーケティングとコピーライティングのプロです。
+Brain記事から公式LINEに登録してくれた読者に対して、
+3日間で信頼関係を築き、
+上位商品（個別相談・サポート講座・上位教材など）
+へ自然につなげるLINEステップ配信文章を3通作成してください。
+
+# 前提情報
+・あなたのジャンル：
+[STEP 01で決定したジャンル]
+
+・ターゲット：
+[STEP 01で決定したターゲット]
+
+・配布するLINE特典：
+[例：コピペ用プロンプト集、チェックリストなど]
+
+・案内したい上位オファー：
+[例：無料個別相談、添削サポート、上位教材など]
+
+# 配信構成
+【1通目：登録直後】
+・登録のお礼
+・プレゼント（URL）の案内
+・なぜこの発信をしているのか
+・読者の悩みに寄り添うメッセージ
+・明日の配信予告
+
+【2通目：2日目】
+・特典の使い心地や進捗を気遣う
+・多くの人が一人で作業すると挫折してしまう理由を共有
+・一人で悩む必要がないことを伝える
+・明日、今後の行動につながる重要な案内があることを予告
+
+【3通目：3日目】
+・独学で進めることの限界を整理
+・最短で結果を出すための具体的な解決策を提示
+・上位オファーの案内
+・参加リンクを自然に提示
+・必要に応じて人数・期間などの限定条件を明記
+・最後は押し売りではなく、読者の背中を優しく押す
+
+# 執筆ルール
+・LINEで読みやすい文章にする
+・1行を15〜20文字程度にする
+・適度に改行する
+・絵文字は多すぎない程度に使用する
+・押し売り感を出さない
+・「買ってください」ではなく「必要な人に届ける」というスタンスにする
+・読者の不安や迷いに寄り添う
+・各メッセージの最後に自然な行動を1つだけ提示する</pre></div>
+<p class="label">▼ 記入例</p>
+<div class="info"><p><strong>ジャンル：</strong>50代女性の恋愛・婚活</p><p><strong>配布するLINE特典：</strong>恋愛note販売ポストメーカー（無料お試し版）</p><p><strong>案内したい上位オファー：</strong>AI×コンテンツ作成完全攻略キット</p></div>
+</div></section>
+<section class="sec alt" id="s8"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">4つのプロンプトを使うときのポイント</h2></div>
+<p>ここまでの内容を、もう一度シンプルに整理します。</p>
+<div class="info"><p><strong>① 悩みを見つける</strong>（「誰の、どんな悩みを解決する？」）</p><p class="arrow" aria-hidden="true">↓</p><p><strong>② 切り口を決める</strong>（「なぜ、あなたから買うの？」）</p><p class="arrow" aria-hidden="true">↓</p><p><strong>③ 商品を作る</strong>（「その悩みをどうやって解決する？」）</p><p class="arrow" aria-hidden="true">↓</p><p><strong>④ 導線を作る</strong>（「どうやって次の商品につなげる？」）</p></div>
+<p>この順番を飛ばさないことが大切です。</p>
+</div></section>
+<section class="sec" id="s9"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">最後に</h2></div>
+<p>AIを使えば、文章そのものは以前よりずっと速く作れるようになりました。</p>
+<p>でも、<strong>「AIに書かせれば売れる」というわけではありません。</strong></p>
+<p>大切なのは、</p>
+<ul><li>誰の悩みを解決するのか。</li><li>その人が本当に困っていることは何なのか。</li><li>自分はどんな切り口で力になれるのか。</li></ul>
+<p>この土台を作ることです。</p>
+<p>だからこそ、この4つのプロンプトも <strong>① → ② → ③ → ④</strong> の順番で使ってください。</p>
+<p>最初から完璧な商品を作ろうとしなくても大丈夫です。まずはSTEP ①をコピーして、AIに貼り付けてみてください。</p>
+<p>そこから一つずつ進めていけば、「何を発信したらいいか分からない」という状態から、「これなら商品にできそう」というところまで進めるはずです。</p>
+<p>そして、実際にAIを動かしながら、自分の経験や言葉を少しずつ加えていってください。</p>
+<p>あなたにしか書けない言葉が入った瞬間、AIが作った文章は「あなたの商品」に変わります。</p>
+<p>この特典が、あなたのコンテンツ作成を少しでもラクにし、「作って終わり」ではなく「作って、届けて、売る」ところまで進むための一助になれば嬉しいです。</p>
+<p>ぜひ、実際に手を動かしながら使ってみてください！</p>
+</div></section>
+
+<section class="end">
+<div class="wrap">
+<p class="sign">— つむぎ</p>
+<a class="btn" href="index.html">特典一覧に戻る</a>
+</div>
+</section>
+<footer>つむぎ公式LINEご登録者限定 特典アイテム 02</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var text=btn.closest('.prompt').querySelector('pre').innerText;
+    function done(){btn.textContent='コピーしました';btn.classList.add('done');setTimeout(function(){btn.textContent='コピーする';btn.classList.remove('done');},1800);}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,fallback);}else{fallback();}
+    function fallback(){var t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(t);}
+  });
+});
+</script>
+</body>
+</html>

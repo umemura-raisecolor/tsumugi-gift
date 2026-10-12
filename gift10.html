@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>コンテンツ販売・営業戦略実践チェックリスト（詳細版）｜つむぎ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Cormorant+Garamond:wght@500;600&display=swap">
+<style>
+:root{--deep:#0A1630;--navy:#12244A;--mid:#1C3466;--gold:#C9A85C;--gold-l:#E6CC8A;--gold-d:#8A6A22;--ink:#1A2440;--muted:#4A5778;--line:#D8DEEA;--paper:#F3F5FA;--tint:#EAEEF6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--deep);font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);line-height:1.9;font-size:16px}
+a{color:var(--gold-d)}a:hover{color:var(--navy)}
+.serif{font-family:'Shippori Mincho B1',serif}
+.latin{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;font-size:15px;margin:0}
+.wrap{max-width:860px;margin:0 auto}
+.wide{max-width:1080px;margin:0 auto}
+h2,h3,h4,p,ul,ol{margin:0}
+.bar{width:48px;height:2px;background:var(--gold)}
+
+/* top nav */
+.topnav{background:var(--deep);border-bottom:1px solid #22355E}
+.topnav .wide{display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:12px}
+.topnav a{color:#C9D2E6;text-decoration:none;font-size:14px;min-height:44px;display:flex;align-items:center}
+.topnav a:hover{color:var(--gold-l)}
+.topnav .brand{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold);font-size:14px}
+
+/* hero */
+.hero{background:var(--deep);color:#EEF1F7;padding:88px 20px 96px;position:relative}
+.hero::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold)}
+.hero .wide{display:flex;flex-direction:column;align-items:center;gap:26px;text-align:center}
+.rule{display:flex;align-items:center;gap:14px;color:var(--gold)}
+.rule .l{display:block;width:40px;height:1px;background:var(--gold)}
+.pill{font-size:15px;letter-spacing:.12em;color:#C9D2E6;border:1px solid #3A4E7A;padding:6px 20px;border-radius:999px}
+.hero h1{margin:0;font-weight:800;font-size:clamp(26px,4.4vw,50px);line-height:1.45;letter-spacing:.03em;color:#fff;max-width:960px}
+.hero .sub{font-weight:600;font-size:clamp(16px,2.1vw,21px);line-height:1.8;color:var(--gold-l);max-width:820px}
+
+/* toc */
+.toc{background:var(--navy);color:#EEF1F7;padding:56px 20px}
+.toc .wide{display:flex;flex-direction:column;gap:22px}
+.toc .eyebrow{color:var(--gold);text-align:center}
+.toc ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.toc a{display:flex;gap:14px;align-items:center;background:var(--deep);border:1px solid #2E4372;border-radius:6px;padding:14px 18px;color:#EEF1F7;text-decoration:none;min-height:44px;height:100%}
+.toc a:hover{border-color:var(--gold)}
+.toc .n{font-family:'Cormorant Garamond',serif;font-size:26px;line-height:1;color:var(--gold);flex:0 0 auto}
+.toc .t{font-size:14px;line-height:1.6}
+
+/* sections */
+.sec{background:var(--paper);padding:80px 20px}
+.sec.alt,.sec.intro{background:#fff}
+.sec .wrap{display:flex;flex-direction:column;gap:20px}
+.sec-head{display:flex;gap:20px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.sec-no{flex:0 0 auto;width:68px;height:68px;border-radius:6px;background:var(--deep);color:var(--gold-l);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600}
+.sec-no.orn{font-size:22px}
+.sec-head h2{font-weight:800;font-size:clamp(20px,2.7vw,28px);line-height:1.55;color:var(--deep)}
+.sec h3{font-size:19px;color:var(--deep);line-height:1.6;padding-left:14px;border-left:3px solid var(--gold);margin-top:16px}
+.sec h4{font-size:17px;color:var(--navy);line-height:1.6;margin-top:8px}
+.sec ul,.sec ol{padding-left:1.5em;display:flex;flex-direction:column;gap:8px}
+.sec ul.lv1,.sec ol.lv1{padding-left:3em}
+.sec ul.lv2,.sec ol.lv2{padding-left:4.5em}
+.label{color:var(--gold-d);font-weight:700;font-size:15px;letter-spacing:.04em;margin-top:6px}
+.purpose{background:var(--tint);border-radius:6px;padding:14px 18px}
+.codelabel{font-family:'Cormorant Garamond',serif;letter-spacing:.25em;color:var(--gold-d);font-weight:600;margin-top:10px}
+.warn{background:#FFF8EC;border:1px solid #E8D3A6;border-radius:6px;padding:16px 20px;font-size:15px}
+
+/* prompt */
+.prompt{background:var(--deep);border-radius:8px;overflow:hidden;border:1px solid #2E4372}
+.prompt-bar{display:flex;justify-content:space-between;align-items:center;padding:8px 10px 8px 18px;background:var(--navy);border-bottom:1px solid #2E4372}
+.prompt-bar span{font-family:'Cormorant Garamond',serif;letter-spacing:.3em;color:var(--gold);font-size:14px}
+.copy{font:inherit;font-size:14px;font-weight:700;background:var(--gold);color:var(--deep);border:0;border-radius:4px;padding:8px 16px;min-height:44px;cursor:pointer}
+.copy:hover{background:var(--gold-l)}
+.copy.done{background:#fff}
+.prompt pre{margin:0;padding:20px 22px;color:#E4E9F3;font-family:'Zen Kaku Gothic New',sans-serif;font-size:14.5px;line-height:1.85;white-space:pre-wrap;word-break:break-word;max-height:520px;overflow:auto}
+
+/* panels */
+.example{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:20px 24px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.sec:not(.alt):not(.intro) .example{background:#fff}
+.sec.alt .example,.sec.intro .example{background:var(--paper)}
+.ex-head{font-weight:700;color:var(--deep)}
+.info{background:var(--navy);color:#EEF1F7;border-radius:8px;padding:24px 28px;display:flex;flex-direction:column;gap:10px}
+.info strong{color:var(--gold-l)}
+.info .arrow{color:var(--gold);text-align:center;font-size:20px;line-height:1}
+.soft{background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px 26px;display:flex;flex-direction:column;gap:10px}
+.sec.alt .soft,.sec.intro .soft{background:var(--paper)}
+.soft-h{font-weight:700;color:var(--deep)}
+
+/* days */
+.days{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.day{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:6px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.day-n{font-family:'Cormorant Garamond',serif;letter-spacing:.2em;color:var(--gold-d);font-weight:600}
+.sec.closing .btn{color:var(--deep)}
+
+/* checklist */
+.checks{list-style:none;padding:0 !important;display:flex;flex-direction:column;gap:10px}
+.checks label{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;cursor:pointer;min-height:44px}
+.sec.alt .checks label,.sec.intro .checks label{background:var(--paper)}
+.checks input{flex:0 0 auto;width:20px;height:20px;margin-top:5px;accent-color:var(--navy)}
+.checks input:checked+span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold)}
+
+/* table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:#fff}
+table{width:100%;border-collapse:collapse;min-width:560px}
+th{background:var(--deep);color:var(--gold-l);text-align:left;font-size:14px;letter-spacing:.04em;padding:14px 16px;vertical-align:top}
+td{padding:14px 16px;border-top:1px solid var(--line);vertical-align:top;font-size:15px}
+td:first-child{font-weight:700;color:var(--deep)}
+.blank-cell{display:block;min-height:28px;border-bottom:1px dashed #A9B4CC}
+
+/* closing */
+.sec.closing{background:var(--navy);color:#EEF1F7}
+.sec.closing p{color:#C9D2E6}
+.sec.closing .bighead{font-weight:800;font-size:clamp(22px,3.2vw,32px);line-height:1.6;color:#fff}
+.sec.closing .info{background:var(--deep)}
+
+/* end */
+.end{background:var(--deep);padding:64px 20px;text-align:center;color:#C9D2E6}
+.end .wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 28px;border-radius:4px;background:var(--gold);color:var(--deep);font-weight:700;text-decoration:none}
+.btn:hover{background:var(--gold-l);color:var(--deep)}
+.sign{font-family:'Shippori Mincho B1',serif;font-size:22px;color:var(--gold-l);letter-spacing:.2em}
+footer{background:var(--deep);color:#8C9BBD;padding:0 20px 28px;text-align:center;font-size:13px;letter-spacing:.08em}
+
+@media (max-width:760px){
+ .sec{padding:60px 16px}
+ .toc{padding:44px 16px}
+ .toc ol{grid-template-columns:minmax(0,1fr)}
+ .days{grid-template-columns:minmax(0,1fr)}
+ .sec-head{gap:14px}
+ .sec-no{width:52px;height:52px;font-size:26px}
+ .prompt pre{font-size:14px;padding:16px}
+ .info,.soft,.example{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<div class="topnav"><div class="wide"><span class="brand">TSUMUGI</span><a href="index.html">← 特典一覧に戻る</a></div></div>
+
+<header class="hero">
+<div class="wide">
+<div class="rule latin"><span class="l"></span><span>GIFT ITEM 10</span><span class="l"></span></div>
+<p class="pill">つむぎ公式LINE 特典アイテム 10｜実践・検証</p>
+<h1 class="serif">コンテンツ販売・営業戦略実践チェックリスト（詳細版）</h1>
+<p class="sub serif"><strong>〜「作る」から「届けて、育てる」までを行動に変える完全ガイド〜</strong></p>
+</div>
+</header>
+
+<nav class="toc dark" aria-label="目次"><div class="wide"><p class="latin eyebrow">CONTENTS</p><ol><li><a href="#s1"><span class="n">◆</span><span class="t">このチェックリストの使い方と基本原則</span></a></li><li><a href="#s2"><span class="n">01</span><span class="t">STEP 1｜戦略・土台を決める（コンセプト策定と価格設計）</span></a></li><li><a href="#s3"><span class="n">02</span><span class="t">STEP 2｜販売ページを整える（セールスライティングとVEC構造）</span></a></li><li><a href="#s4"><span class="n">03</span><span class="t">STEP 3｜SNSプロモーション・プロモーション展開</span></a></li><li><a href="#s5"><span class="n">04</span><span class="t">STEP 4｜販売後のデータ検証と仮説構築（KGI・KPI分析）</span></a></li><li><a href="#s6"><span class="n">05</span><span class="t">STEP 5｜信頼の積み上げとLTV（顧客生涯価値）の最大化</span></a></li><li><a href="#s7"><span class="n">◆</span><span class="t">タイムライン別 3分クイックマトリクス（販売フェーズ別チェック）</span></a></li><li><a href="#s8"><span class="n">◆</span><span class="t">最後に｜今日即座に実行する行動プラン（Action Item）</span></a></li></ol></div></nav>
+
+<section class="sec" id="s1"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">このチェックリストの使い方と基本原則</h2></div>
+<div class="soft"><p class="">本シートは、学んだ営業戦略論を実際のWebコンテンツ販売に落とし込み、即座に行動へ変えるための実務用マスターシートです。</p></div>
+<ul><li><strong>1商品集中原則：</strong> 一度に複数の施策を実行する必要はありません。まずは販売するメイン商品を1点指定し、STEP 1から順番にチェックを進めてください。</li><li><strong>アジリティ重視：</strong> 「100%完璧な準備をしてから公開する」のではなく、「最速で市場に届け、ユーザーの初期反応・マーケットインのデータを収集し、高速で改善（PDCA）する」ことを最優先とします。</li><li><strong>仮説検証の継続：</strong> 売れた理由・売れなかった理由を常にデータと定性コメントから分析し、次のマーケティング施策にフィードバックします。</li></ul>
+</div></section>
+<section class="sec alt" id="s2"><div class="wrap">
+<div class="sec-head"><span class="sec-no">01</span><h2 class="serif">STEP 1｜戦略・土台を決める（コンセプト策定と価格設計）</h2></div>
+<p>コンテンツマーケティングにおいて最も重要なのは「誰の、どのような課題を、どのようなアプローチで解決するか」のポジショニングを明確にすることです。</p>
+<ul class="checks"><li><label><input type="checkbox"><span><strong>ターゲットペルソナの特定：</strong> このコンテンツは「誰の、どんな深刻な悩み」を解決するものか、ターゲットを1人に絞り込めるレベルまで具体化したか？</span></label></li><li><label><input type="checkbox"><span><strong>ベネフィット（提供価値）の定義：</strong> 読者がコンテンツを読み終えた後、具体的にどのような状態になり、何ができるようになるか（ビフォーアフター）を定義したか？</span></label></li><li><label><input type="checkbox"><span><strong>最適なプラットフォームの選定：</strong> 販売プラットフォーム（note / Brain / Tips / 独自決済など）の特徴と顧客層の属性に合致しているか確認したか？</span></label></li><li><label><input type="checkbox"><span><strong>競合・市場リサーチ：</strong> 類似ジャンルの先行コンテンツを分析し、自商品ならではの「独自性（USP）」や差別化ポイントを明確にしたか？</span></label></li><li><label><input type="checkbox"><span><strong>適正価格の設定：</strong> 提供する価値の大きさ、ターゲット層の購買力、市場相場を踏まえた適切な通常販売価格を設定したか？</span></label></li><li><label><input type="checkbox"><span><strong>ローンチ価格（初期価格）の戦略的設定：</strong> 初期価格を100円などの低価格に設定する場合、その目的（初期実績づくり、購入心理ハードルの低下、口コミ・レビュー獲得など）を定めたか？</span></label></li><li><label><input type="checkbox"><span><strong>ダイナミック・プライシング（値上げ条件）の策定：</strong> 値上げを行うタイミング（例：〇部完売ごと、または〇月〇日〇時）と段階的な価格ツリーをあらかじめ設計したか？</span></label></li></ul>
+<div class="tbl"><table><tr><th>戦略・設計項目</th><th>実行・記入欄</th></tr><tr><td><strong>最重要解決課題（ターゲットの悩み）</strong></td><td><span class="blank-cell"></span></td></tr><tr><td><strong>初期価格と低価格化の戦略的目的</strong></td><td><span class="blank-cell"></span></td></tr><tr><td><strong>値上げの具体的フラグ（部数／日時）</strong></td><td><span class="blank-cell"></span></td></tr></table></div>
+</div></section>
+<section class="sec" id="s3"><div class="wrap">
+<div class="sec-head"><span class="sec-no">02</span><h2 class="serif">STEP 2｜販売ページを整える（セールスライティングとVEC構造）</h2></div>
+<p>「タメになる良い記事」で終わらせず、読者に「これは自分のための商品だ」と感じさせ、成約（CVR）を高めるランディングページを構成します。</p>
+<ul class="checks"><li><label><input type="checkbox"><span><strong>PASONAの法則等に基づく問題提起：</strong> 冒頭でターゲットが抱える現状の悩み、痛み、不安を具体的に代弁し、深い共感を得ているか？</span></label></li><li><label><input type="checkbox"><span><strong>ストーリーテリングと信頼構築：</strong> 執筆者自身の失敗談や乗り越えた体験談を盛り込み、親近感と説得力を両立させているか？</span></label></li><li><label><input type="checkbox"><span><strong>解決策の提示（ソリューション）：</strong> なぜ従来のやり方では駄目で、このコンテンツの手法が最も効果的であるかの根拠を示したか？</span></label></li><li><label><input type="checkbox"><span><strong>ベネフィットの具体化：</strong> 読み終えた後の未来、得られる具体的成果、作業時間の短縮などのベネフィットを箇条書きで分かりやすく記載したか？</span></label></li><li><label><input type="checkbox"><span><strong>ミスマッチ防止（向き・不向きの明記）：</strong> 「本商品が向いている人」「購入を控えるべき人（向いていない人）」を明示し、満足度低下や低評価リスクを防止しているか？</span></label></li><li><label><input type="checkbox"><span><strong>タイトル・サムネイルの一貫性：</strong> 期待値を煽りすぎず、アイキャッチ画像やタイトルと実際の本文内容が相違ないか検証したか？</span></label></li><li><label><input type="checkbox"><span><strong>購入後の具体的イメージ化：</strong> 付属する特典、テンプレート、チェックシートなどの構成要素をビジュアルや図解を交えて説明しているか？</span></label></li><li><label><input type="checkbox"><span><strong>緊急性・限定性の提示：</strong> 部数限定、期間限定、値上げ前の特別価格であることを分かりやすく強調し、即時購入を促しているか？</span></label></li></ul>
+<div class="tbl"><table><tr><th>セールス要素</th><th>実行・記入欄</th></tr><tr><td><strong>読者に約束する絶対的な変化（ベネフィット）</strong></td><td><span class="blank-cell"></span></td></tr><tr><td><strong>「今」この商品を買うべき最大の理由（限定性）</strong></td><td><span class="blank-cell"></span></td></tr></table></div>
+</div></section>
+<section class="sec alt" id="s4"><div class="wrap">
+<div class="sec-head"><span class="sec-no">03</span><h2 class="serif">STEP 3｜SNSプロモーション・プロモーション展開</h2></div>
+<p>リリース後の告知は1回で終了させるのではなく、ターゲットの心理フェーズやアプローチの切り口を変え、多角的なメッセージで届けていきます。</p>
+<ul class="checks"><li><label><input type="checkbox"><span><strong>リリース一斉告知：</strong> 販売開始の瞬間に合わせてカウントダウンや公式アナウンスを行い、初期露出を最大化したか？</span></label></li><li><label><input type="checkbox"><span><strong>切り口①【共感・問題提起型】：</strong> 読者の日常の悩みや「あるある」にアプローチし、感情を動かす投稿を作成・実行したか？</span></label></li><li><label><input type="checkbox"><span><strong>切り口②【検証・実績・社会的証明型】：</strong> 初日の販売部数、ランキング順位、ユーザーからの初期リアクション等を活用した投稿を行ったか？</span></label></li><li><label><input type="checkbox"><span><strong>切り口③【チラ見せ・コンテンツ一部公開型】：</strong> 本文の重要パート、図解、特典テンプレートのスクショなどを先行公開し、品質の高さを示したか？</span></label></li><li><label><input type="checkbox"><span><strong>切り口④【限定・カウントダウン型】：</strong> 「残り〇部で値上げ」「本日23:59まで割引」など、心理的タイムリミットを提示したか？</span></label></li><li><label><input type="checkbox"><span><strong>複数回・多角度アプローチの徹底：</strong> 同じ商品でも切り口・画像・文言を変えて投稿プロモーションをスケジュール化しているか？</span></label></li><li><label><input type="checkbox"><span><strong>クロスメディア展開：</strong> X（旧Twitter）だけでなく、Threads、Instagram、note、公式LINE等、各メディアの特性に合わせて最適展開したか？</span></label></li><li><label><input type="checkbox"><span><strong>ターゲット層ごとのメッセージ最適化：</strong> 投稿ごとに「誰に・何を・どう行動させるか（CTA）」を個別に設定したか？</span></label></li></ul>
+<div class="tbl"><table><tr><th>プロモーション管理</th><th>実行・記入欄</th></tr><tr><td><strong>採用する告知パターン組み合わせ</strong></td><td><span class="blank-cell"></span></td></tr><tr><td><strong>次回プロモーション実行日時／タイミング</strong></td><td><span class="blank-cell"></span></td></tr></table></div>
+</div></section>
+<section class="sec" id="s5"><div class="wrap">
+<div class="sec-head"><span class="sec-no">04</span><h2 class="serif">STEP 4｜販売後のデータ検証と仮説構築（KGI・KPI分析）</h2></div>
+<p>数字と定性データを定性・定量双方の視点から分析し、売上結果に対する仮説を検証することで次回への再現性を高めます。</p>
+<ul class="checks"><li><label><input type="checkbox"><span><strong>販売データ・売上の正確なトラッキング：</strong> 時間帯別・日別の販売部数および売上金額を正確に記録したか？</span></label></li><li><label><input type="checkbox"><span><strong>流入経路分析：</strong> どのSNS投稿、どのプラットフォーム、どのリンクから流入・購入に至ったかをトラッキング・確認したか？</span></label></li><li><label><input type="checkbox"><span><strong>エンゲージメントデータの記録：</strong> 告知投稿に対するインプレッション数、いいね、リポスト、保存数、コメント等の反応率を計測したか？</span></label></li><li><label><input type="checkbox"><span><strong>定性フィードバックの収集：</strong> 購入者からのレビュー、DM、引用リポストによる感想、不満点や改善の要望を収集したか？</span></label></li><li><label><input type="checkbox"><span><strong>因果関係の仮説立案：</strong> 「なぜ売れたのか（または売れなかったのか）」について、価格・集客・文章・タイミングの観点から理由を仮説化したか？</span></label></li><li><label><input type="checkbox"><span><strong>改善アクションプランの策定：</strong> 検証結果に基づき、次回販売や別商品開発に向けた具体的な改善ポイントを1〜3個特定したか？</span></label></li></ul>
+<div class="tbl"><table><tr><th>検証指標・データ項目</th><th>記録・分析結果記入欄</th></tr><tr><td><strong>累計販売部数・売上合計</strong></td><td>____________ 部 ／ ____________ 円</td></tr><tr><td><strong>最も転換率（CVR）が高かった投稿・メディア</strong></td><td><span class="blank-cell"></span></td></tr><tr><td><strong>定性評価・購入者の声（レビューまとめ）</strong></td><td><span class="blank-cell"></span></td></tr><tr><td><strong>次回のプロモーションに向けた改善打ち手（1〜3選）</strong></td><td><span class="blank-cell"></span></td></tr></table></div>
+</div></section>
+<section class="sec alt" id="s6"><div class="wrap">
+<div class="sec-head"><span class="sec-no">05</span><h2 class="serif">STEP 5｜信頼の積み上げとLTV（顧客生涯価値）の最大化</h2></div>
+<p>単発の売り切りで終わらせず、初期購入者との信頼関係を深め、紹介の連鎖を生み出すとともに継続的な導線を整えます。</p>
+<ul class="checks"><li><label><input type="checkbox"><span><strong>レビューリクエストの仕組化：</strong> 購入直後や特典配布時に、レビュー記入や感想ツイートを自然に促すメッセージを組み込んだか？</span></label></li><li><label><input type="checkbox"><span><strong>UGC（ユーザー生成コンテンツ）の活用：</strong> 獲得したレビューや引用通知をキャプチャし、LPの「お客様の声」や次回告知の画像として資産化したか？</span></label></li><li><label><input type="checkbox"><span><strong>アフィリエイト・紹介機能の活用：</strong> BrainやTips等の紹介還元機能を有効化し、既存購入者が紹介者となる仕組みを設定したか？</span></label></li><li><label><input type="checkbox"><span><strong>インフルエンサー・アライアンス戦略：</strong> 拡散力のあるユーザーや相性の良い読者を具体的にリストアップし、ギブやアプローチを行っているか？</span></label></li><li><label><input type="checkbox"><span><strong>適時値上げによるブランド価値向上：</strong> 販売実績（〇部突破）に合わせて順次値上げを行い、早期購入者の優位性を保ちつつ価値を高めているか？</span></label></li><li><label><input type="checkbox"><span><strong>値上げに関する透明性維持：</strong> 値上げを実施する際は、「なぜ値上げするのか（追記・特典追加など）」の納得できる理由を事前に明示したか？</span></label></li><li><label><input type="checkbox"><span><strong>バックエンド・次回商品への導線：</strong> コンテンツの最末尾に、公式LINE・メルマガ登録、上位コンサル、あるいは次回作の予告リンクを設置したか？</span></label></li></ul>
+<div class="tbl"><table><tr><th>LTV向上・発展施策</th><th>実行・記入欄</th></tr><tr><td><strong>次に案内・販売したいアップセル／バックエンド商品</strong></td><td><span class="blank-cell"></span></td></tr><tr><td><strong>次回の値上げタイミングおよび改定後価格</strong></td><td><span class="blank-cell"></span></td></tr></table></div>
+</div></section>
+<section class="sec" id="s7"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">タイムライン別 3分クイックマトリクス（販売フェーズ別チェック）</h2></div>
+<p>多忙な実践中でも、各フェーズの要点を3分で一括確認できる比較マトリクスです。</p>
+<div class="tbl"><table><tr><th>【販売前】フェーズ</th><th>【販売中】フェーズ</th><th>【販売後】フェーズ</th></tr><tr><td><strong>1. ターゲットの選定：</strong><br>誰に売るか明確か？<br><strong>2. 価値の定義：</strong><br>何の悩みを根本解決するか？<br><strong>3. 価格戦略：</strong><br>初期価格と値上げロジックは決定したか？</td><td><strong>1. 告知バリエーション：</strong><br>どの角度の告知を発信するか？<br><strong>2. 露出頻度：</strong><br>何回・どの媒体で届けるか？<br><strong>3. リアクション分析：</strong><br>いいね・CTR・CVRの反応はどうか？</td><td><strong>1. 実績の集計：</strong><br>目標に対して何部売れたか？<br><strong>2. 要因分析：</strong><br>なぜ売れたのか（売れなかったのか）？<br><strong>3. 改善と展開：</strong><br>何を行動改善し、どの次回商品へ繋げるか？</td></tr></table></div>
+</div></section>
+<section class="sec alt" id="s8"><div class="wrap">
+<div class="sec-head"><span class="sec-no orn" aria-hidden="true">◆</span><h2 class="serif">最後に｜今日即座に実行する行動プラン（Action Item）</h2></div>
+<p>ノウハウや情報を集め続けるよりも、1つの商品を実際に動かし市場のフィードバックを得ることが成長への最短ルートです。本日必ず実行するアクションを3つ指定してください。</p>
+<div class="soft"><p class="soft-h"><strong>1. 今日実行すること 1：</strong></p><p class="soft-h"><strong>2. 今日実行すること 2：</strong></p><p class="soft-h"><strong>3. 今日実行すること 3：</strong></p></div>
+</div></section>
+<section class="sec closing" id="s9"><div class="wrap">
+<h2 class="serif bighead"><strong>作る → 届ける → 検証する → 育てる</strong></h2><div class="bar"></div>
+<div class="info"><p>営業戦略・コンテンツマーケティングの本質は知識の量ではなく、</p><p>「実行し、改善し続ける仕組み」そのものです。</p></div>
+</div></section>
+
+<section class="end">
+<div class="wrap">
+<p class="sign">— つむぎ</p>
+<a class="btn" href="index.html">特典一覧に戻る</a>
+</div>
+</section>
+<footer>つむぎ公式LINEご登録者限定 特典アイテム 10</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var text=btn.closest('.prompt').querySelector('pre').innerText;
+    function done(){btn.textContent='コピーしました';btn.classList.add('done');setTimeout(function(){btn.textContent='コピーする';btn.classList.remove('done');},1800);}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(done,fallback);}else{fallback();}
+    function fallback(){var t=document.createElement('textarea');t.value=text;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(t);}
+  });
+});
+</script>
+</body>
+</html>
